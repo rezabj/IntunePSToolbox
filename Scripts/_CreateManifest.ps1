@@ -9,7 +9,8 @@ Update-ModuleManifest -Path ..\IntunePSToolbox.psd1 `
     "New-IPSTAADApp", `
     "Connect-IPSTAsDelegated", `
     "Connect-IPSTAsApplication", `
-    "Get-IPSTDeviceConfigurationPolicies" `
+    "Get-IPSTDeviceConfigurationPolicies", `
+    "Get-IPSTManagedDevice" `
   -CmdletsToExport "" `
   -AliasesToExport "Connect-Intune" `
   -PowerShellVersion "5.0" 
