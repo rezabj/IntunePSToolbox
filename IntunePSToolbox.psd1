@@ -70,9 +70,9 @@ RequiredModules = @('MSAL.PS',
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'New-IPSTAADApp', 'Connect-IPSTAsDelegated', 
-               'Connect-IPSTAsApplication', 'Get-IPSTDeviceConfigurationPolicies', 
-               'Get-IPSTManagedDevice'
+FunctionsToExport = 'Connect-IPSTAsDelegated', 'Get-IPSTCoManagedDevice', 
+               'Get-IPSTDeviceConfigurationPolicies', 'Get-IPSTManagedDevice', 
+               'New-IPSTAADApp'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
