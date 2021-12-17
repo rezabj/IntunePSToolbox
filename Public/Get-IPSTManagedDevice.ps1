@@ -6,7 +6,7 @@ function Get-IPSTManagedDevice {
   )
   $Resource = '/deviceManagement/managedDevices'
   $Params = @{
-    "AccessToken" = $AccessToken
+    "AccessToken" = $IPSTAccessToken
     "GraphMethod" = 'GET'
   }
   if ($DeviceConfigurationId) {

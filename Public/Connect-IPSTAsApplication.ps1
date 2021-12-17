@@ -24,18 +24,12 @@ function Connect-IPSTAsDelegated {
     [Parameter(Mandatory=$true)]
     [string]$TenantID,
     [Parameter(Mandatory=$true)]
-    [string]$ClientID
+    [string]$ClientID,
+    [Parameter(Mandatory=$true)]
+    [string]$Secret
   )
   # https://docs.microsoft.com/en-us/graph/permissions-reference#intune-device-management-permissions
   $AccessToken = Get-MsalToken -ClientId $ClientID -TenantId $TenantID -Interactive `
-   -Scopes 'https://graph.microsoft.com/User.Read.All', `
-           'https://graph.microsoft.com/Directory.Read.All', `
-           'https://graph.microsoft.com/DeviceManagementApps.Read.All', `
-           'https://graph.microsoft.com/DeviceManagementConfiguration.Read.All', `
-           'https://graph.microsoft.com/DeviceManagementManagedDevices.Read.All', `
-           'https://graph.microsoft.com/DeviceManagementRBAC.Read.All', `
-           'https://graph.microsoft.com/DeviceManagementServiceConfig.Read.All'
-           
   $Global:IPSTAccessToken = $AccessToken.AccessToken
   $Global:IPSTGraphApiEnv = "beta"
 }

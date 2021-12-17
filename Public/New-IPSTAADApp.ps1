@@ -6,7 +6,7 @@ function New-IPSTAADApp {
   $TenantInfo = Connect-AzureAD
   $AppName = "Intune PS Toolbox"
   $App = New-AzureADApplication -DisplayName $AppName -ReplyUrls "https://login.microsoftonline.com/common/oauth2/nativeclient" -PublicClient $true
-  $ServicePrincipal = New-AzureADServicePrincipal -AppId $App.AppId
+  New-AzureADServicePrincipal -AppId $App.AppId
   $m = "App " + $AppName + " created!"
   Write-Output $m
   $m = "TenantID: " + $TenantInfo.TenantId

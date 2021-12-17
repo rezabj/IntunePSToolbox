@@ -6,7 +6,7 @@ function Get-IPSTDeviceConfigurationPolicies {
   )
   $Resource = '/deviceManagement/deviceConfigurations'
   $Params = @{
-    "AccessToken" = $AccessToken
+    "AccessToken" = $IPSTAccessToken
     "GraphMethod" = 'GET'
   }
   if ($DeviceConfigurationId) {
