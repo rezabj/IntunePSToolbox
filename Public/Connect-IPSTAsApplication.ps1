@@ -1,4 +1,4 @@
-function Connect-IPSTAsDelegated {
+function Connect-IPSTAsApplication {
   <#
   .SYNOPSIS
     Connect to AAD application "Intune PS Toolbox"
@@ -8,6 +8,8 @@ function Connect-IPSTAsDelegated {
     Tenant ID.
   .PARAMETER ClientID
     Azure App (Client) ID.
+  .PARAMETER Secret
+    App secret
   .INPUTS
     None
   .OUTPUTS
@@ -17,7 +19,7 @@ function Connect-IPSTAsDelegated {
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Connect-IPSTAsDelegated -TenantID 00000000-0000-0000-0000-000000000000 -ClientID 00000000-0000-0000-0000-000000000000
+    PS> Connect-IPSTAsApplication -TenantID 00000000-0000-0000-0000-000000000000 -ClientID 00000000-0000-0000-0000-000000000000 -Secret XXXXXXXX
   #>
 
   param (
@@ -26,10 +28,10 @@ function Connect-IPSTAsDelegated {
     [Parameter(Mandatory=$true)]
     [string]$ClientID,
     [Parameter(Mandatory=$true)]
-    [string]$Secret
+    [securestring]$Secret
   )
   # https://docs.microsoft.com/en-us/graph/permissions-reference#intune-device-management-permissions
-  $AccessToken = Get-MsalToken -ClientId $ClientID -TenantId $TenantID -Interactive `
+  $AccessToken = Get-MsalToken -ClientId $ClientID -TenantId $TenantID -ClientSecret $Secret
   $Global:IPSTAccessToken = $AccessToken.AccessToken
   $Global:IPSTGraphApiEnv = "beta"
 }
