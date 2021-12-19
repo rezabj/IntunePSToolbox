@@ -19,8 +19,19 @@ function Get-IPSTDeviceConfigurationPolicies {
   #>
   [CmdletBinding()]
   param (
-      [Parameter()]
-      [string]$DeviceConfigurationId
+    [Parameter()]
+    [ValidateSet(
+      "androidWorkProfileTrustedRootCertificate",
+      "androidWorkProfileVpnConfiguration",
+      "windowsHealthMonitoringConfiguration",
+      "iosGeneralDeviceConfiguration",
+      "windowsUpdateForBusinessConfiguration",
+      "windows10GeneralConfiguration"
+      )
+    ]
+    [string]$ConfigType,
+    [Parameter()]
+    [string]$DeviceConfigurationId
   )
   $Resource = '/deviceManagement/deviceConfigurations'
   $Params = @{
@@ -37,5 +48,15 @@ function Get-IPSTDeviceConfigurationPolicies {
     }
   }
   $Result = Invoke-GraphAPIRequest @Params
+  if ($ConfigType) {
+    $ConfigTypeLong = "#microsoft.graph." + $ConfigType
+    $FiltredResult = @()
+    foreach ($policy in $Result) {
+      if ($policy.'@odata.type' -eq $ConfigTypeLong) {
+        $FiltredResult += $policy
+      }      
+    }
+    $Result = $FiltredResult
+  }
   return $Result
 }
