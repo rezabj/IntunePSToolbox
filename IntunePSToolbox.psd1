@@ -73,7 +73,6 @@ RequiredModules = @('MSAL.PS',
 FunctionsToExport = 'Connect-IPSTAsApplication', 'Connect-IPSTAsDelegated', 
                'Get-IPSTCoManagedDevice', 'Get-IPSTDeviceConfigurationPolicies', 
                'Get-IPSTDeviceConfigurationPoliciesAssignments', 
-               'Get-IPSTDeviceConfigurationWUfB', 
                'Get-IPSTDeviceEnrollmentConfigurations', 'Get-IPSTManagedDevice', 
                'New-IPSTAADApp'
 
@@ -107,7 +106,7 @@ PrivateData = @{
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/rezabj/IntunePSToolbox'
 
         # A URL to an icon representing this module.
         # IconUri = ''
@@ -126,10 +125,10 @@ PrivateData = @{
 
     } # End of PSData hashtable
 
-} # End of PrivateData hashtable
+ } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
-# HelpInfoURI = ''
+HelpInfoURI = 'https://github.com/rezabj/IntunePSToolbox/Docs'
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''

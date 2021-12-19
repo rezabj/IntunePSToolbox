@@ -14,6 +14,8 @@ Update-ModuleManifest -Path ..\IntunePSToolbox.psd1 `
   -FunctionsToExport $functionlist `
   -CmdletsToExport "" `
   -AliasesToExport "Connect-Intune" `
-  -PowerShellVersion "5.0" 
+  -PowerShellVersion "5.0" `
+  -ProjectUri "https://github.com/rezabj/IntunePSToolbox" `
+  -HelpInfoUri "https://github.com/rezabj/IntunePSToolbox/Docs"
 
 Set-Location ..
