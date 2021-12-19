@@ -24,9 +24,9 @@ function Get-IPSTDeviceConfigurationPoliciesAssignments {
   )
   $Resource = '/deviceManagement/deviceConfigurations'
   $Params = @{
-    "AccessToken" = $IPSTAccessToken
+    "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
-    "GraphUri" = 'https://graph.microsoft.com/' + $GraphApiEnv + $Resource + "/" + $DeviceConfigurationId + "/assignments"
+    "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $DeviceConfigurationId + "/assignments"
   }
   $Result = Invoke-GraphAPIRequest @Params
   return $Result

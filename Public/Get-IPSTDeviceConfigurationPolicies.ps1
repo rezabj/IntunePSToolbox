@@ -6,16 +6,16 @@ function Get-IPSTDeviceConfigurationPolicies {
   )
   $Resource = '/deviceManagement/deviceConfigurations'
   $Params = @{
-    "AccessToken" = $IPSTAccessToken
+    "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
   if ($DeviceConfigurationId) {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $GraphApiEnv + $Resource + "/" + $DeviceConfigurationId
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $DeviceConfigurationId
     }
   } else {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $GraphApiEnv + $Resource
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
     }
   }
   $Result = Invoke-GraphAPIRequest @Params

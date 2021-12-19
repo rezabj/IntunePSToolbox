@@ -25,16 +25,16 @@ function Get-IPSTCoManagedDevice {
   )
   $Resource = '/deviceManagement/comanagedDevices'
   $Params = @{
-    "AccessToken" = $IPSTAccessToken
+    "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
   if ($DeviceConfigurationId) {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $GraphApiEnv + $Resource + "/" + $DeviceId
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $DeviceId
     }
   } else {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $GraphApiEnv + $Resource
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
     }
   }
   $Result = Invoke-GraphAPIRequest @Params
