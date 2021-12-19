@@ -3,8 +3,10 @@ function Get-IPSTDeviceConfigurationPolicies {
   .SYNOPSIS
     Get-IPSTDeviceConfigurationPolicies
   .DESCRIPTION
-    
-  .PARAMETER DeviceConfigurationId
+  
+  .PARAMETER ConfigType
+    Device configuration type. E.g. androidWorkProfileTrustedRootCertificate
+  .PARAMETER ConfigId
     Specifi Device Configuration ID for get specific policy.
   .INPUTS
     None
@@ -15,7 +17,9 @@ function Get-IPSTDeviceConfigurationPolicies {
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTDeviceConfigurationPolicies -DeviceConfigurationId 00000000-0000-0000-0000-000000000000
+    PS> Get-IPSTDeviceConfigurationPolicies -ConfigId 00000000-0000-0000-0000-000000000000
+  .EXAMPLE
+    PS> Get-IPSTDeviceConfigurationPolicies -ConfigType windowsUpdateForBusinessConfiguration
   #>
   [CmdletBinding()]
   param (
@@ -31,7 +35,7 @@ function Get-IPSTDeviceConfigurationPolicies {
     ]
     [string]$ConfigType,
     [Parameter()]
-    [string]$DeviceConfigurationId
+    [string]$ConfigId
   )
   $Resource = '/deviceManagement/deviceConfigurations'
   $Params = @{
@@ -40,7 +44,7 @@ function Get-IPSTDeviceConfigurationPolicies {
   }
   if ($DeviceConfigurationId) {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $DeviceConfigurationId
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $ConfigId
     }
   } else {
     $Params += @{
