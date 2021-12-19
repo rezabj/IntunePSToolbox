@@ -1,4 +1,22 @@
 function New-IPSTAADApp {
+    <#
+  .SYNOPSIS
+    Create new Azure AD Apps for Intune PS Toolbox.
+  .DESCRIPTION
+    
+  .PARAMETER $AppLogin
+    Specify if you use Delegated or App login.
+  .INPUTS
+    None
+  .OUTPUTS
+    None
+  .NOTES
+    Author:         Jan Řežab
+    GitHub:         https://github.com/rezabj/IntunePSToolbox
+    Blog:           https://www.rezab.eu
+  .EXAMPLE
+    PS> New-IPSTAADApp -AppLogin $True
+  #>
   param (
     [Parameter(Mandatory=$true)]
     [bool]$AppLogin
