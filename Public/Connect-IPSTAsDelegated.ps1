@@ -8,6 +8,8 @@
     Tenant ID.
   .PARAMETER ClientID
     Azure App (Client) ID.
+  .PARAMETER Endpoint
+    Grahp API environment - beta or 1.0
   .INPUTS
     None
   .OUTPUTS
@@ -44,5 +46,4 @@
   } else {
     $Global:IPSTGraphApiEnv = "beta"
   }
-  
 }

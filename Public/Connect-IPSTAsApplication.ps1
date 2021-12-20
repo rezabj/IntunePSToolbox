@@ -10,6 +10,8 @@
     Azure App (Client) ID.
   .PARAMETER Secret
     App secret
+  .PARAMETER Endpoint
+    Grahp API environment - beta or 1.0
   .INPUTS
     None
   .OUTPUTS
@@ -28,10 +30,17 @@
     [Parameter(Mandatory=$true)]
     [string]$ClientID,
     [Parameter(Mandatory=$true)]
-    [securestring]$Secret
+    [securestring]$Secret,
+    [ValidateSet("beta","1.0")]
+    [Parameter(Mandatory=$false, Position=2)]
+    [string]$Endpoint
   )
   # https://docs.microsoft.com/en-us/graph/permissions-reference#intune-device-management-permissions
   $AccessToken = Get-MsalToken -ClientId $ClientID -TenantId $TenantID -ClientSecret $Secret
   $Global:IPSTAccessToken = $AccessToken.AccessToken
-  $Global:IPSTGraphApiEnv = "beta"
+  if ($Endpoint -eq "1.0") {
+    $Global:IPSTGraphApiEnv = "1.0"
+  } else {
+    $Global:IPSTGraphApiEnv = "beta"
+  }
 }
