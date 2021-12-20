@@ -21,9 +21,9 @@
   .EXAMPLE
     PS> Get-IPSTDeviceConfigurationPolicies -PolicyType windowsUpdateForBusinessConfiguration
   #>
-  [CmdletBinding()]
+  [CmdletBinding(DefaultParameterSetName="Global")]
   param (
-    [Parameter()]
+    [Parameter(ParameterSetName='Global')]
     [ValidateSet(
       "androidCertificateProfileBase",
       "androidCustomConfiguration",
@@ -157,7 +157,23 @@
       )
     ]
     [string]$PolicyType,
-    [Parameter()]
+    [Parameter(ParameterSetName='Assignment')][switch]$Assignment,                 # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationassignment-get?view=graph-rest-beta
+    [Parameter(ParameterSetName='ConflictSummary')][switch]$ConflictSummary,       # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationconflictsummary-list?view=graph-rest-beta
+    [Parameter(ParameterSetName='DeviceOverview')][switch]$DeviceOverview,         # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationdeviceoverview-get?view=graph-rest-beta
+    [Parameter(ParameterSetName='DeviceStateSummary')][switch]$DeviceStateSummary, # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-get?view=graph-rest-beta
+    [Parameter(ParameterSetName='DeviceStatus')][switch]$DeviceStatus,             # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationdevicestatus-list?view=graph-rest-beta
+    [Parameter(ParameterSetName='GroupAssignment')][switch]$GroupAssignment,       # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationgroupassignment-list?view=graph-rest-beta
+    [Parameter(ParameterSetName='UserOverview')][switch]$UserOverview,             # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationuseroverview-get?view=graph-rest-beta
+    [Parameter(ParameterSetName='UserStateSummary')][switch]$UserStateSummary,     # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationuserstatesummary-get?view=graph-rest-beta
+    [Parameter(ParameterSetName='UserStatus')][switch]$UserStatus,                 # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-list?view=graph-rest-beta
+    
+    [Parameter(ParameterSetName='Global', Mandatory=$false, Position=0)]
+    [Parameter(ParameterSetName='Assignment', Mandatory=$true, Position=0)]
+    [Parameter(ParameterSetName='DeviceOverview', Mandatory=$true, Position=0)]
+    [Parameter(ParameterSetName='DeviceStatus', Mandatory=$true, Position=0)]
+    [Parameter(ParameterSetName='GroupAssignment', Mandatory=$true, Position=0)]
+    [Parameter(ParameterSetName='UserOverview', Mandatory=$true, Position=0)]
+    [Parameter(ParameterSetName='UserStatus', Mandatory=$true, Position=0)]
     [string]$PolicyId
   )
   $Resource = '/deviceManagement/deviceConfigurations'
@@ -165,25 +181,85 @@
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
-  if ($PolicyId) {
+  if ($Assignment) {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId + "/assignments"
     }
-  } else {
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result 
+  } elseif ($ConflictSummary) {
+    $Resource = '/deviceManagement/deviceConfigurationConflictSummary'
     $Params += @{
       "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
     }
-  }
-  $Result = Invoke-GraphAPIRequest @Params
-  if ($PolicyType) {
-    $PolicyTypeLong = "#microsoft.graph." + $PolicyType
-    $FiltredResult = @()
-    foreach ($policy in $Result) {
-      if ($policy.'@odata.type' -eq $PolicyTypeLong) {
-        $FiltredResult += $policy
-      }      
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result 
+  } elseif ($DeviceOverview) {
+    $Params += @{
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId + "/deviceStatusOverview"
     }
-    $Result = $FiltredResult
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result 
+    
+  } elseif ($DeviceStateSummary) {
+    $Resource = '/deviceManagement/deviceConfigurationDeviceStateSummaries'
+    $Params += @{
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+    }
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result 
+  } elseif ($DeviceStatus) {
+    $Params += @{
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId + "/deviceStatuses/" + $DeviceStatusId
+    }
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result 
+  } elseif ($GroupAssignment) {
+    $Params += @{
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId + "/groupAssignments"
+    }
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result
+  } elseif ($UserOverview) {
+    $Params += @{
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId + "/userStatusOverview"
+    }
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result
+  } elseif ($UserStateSummary) {
+    $Resource = '/deviceManagement/deviceConfigurationUserStateSummaries'
+    $Params += @{
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+    }
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result 
+  } elseif ($UserStatus) {
+    $Params += @{
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId + "/userStatuses"
+    }
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result
+  } else {
+    if ($PolicyId) {
+      $Params += @{
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId
+      }
+    } else {
+      $Params += @{
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+      }
+    }
+    $Result = Invoke-GraphAPIRequest @Params
+    if ($PolicyType) {
+      $PolicyTypeLong = "#microsoft.graph." + $PolicyType
+      $FiltredResult = @()
+      foreach ($policy in $Result) {
+        if ($policy.'@odata.type' -eq $PolicyTypeLong) {
+          $FiltredResult += $policy
+        }      
+      }
+      $Result = $FiltredResult
+    }
+    return $Result 
   }
-  return $Result
 }
