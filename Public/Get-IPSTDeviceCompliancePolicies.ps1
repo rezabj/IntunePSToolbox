@@ -25,11 +25,15 @@
   param (
     [Parameter()]
     [ValidateSet(
+      "androidCompliancePolicy",
       "androidDeviceOwnerCompliancePolicy",
       "androidWorkProfileCompliancePolicy",
+      "aospDeviceOwnerCompliancePolicy",
+      "defaultDeviceCompliancePolicy",
       "iosCompliancePolicy",
       "macOSCompliancePolicy",
-      "windows10CompliancePolicy"
+      "windows10CompliancePolicy",
+      "windowsPhone81CompliancePolicy"
       )
     ]
     [string]$PolicyType,
