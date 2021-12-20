@@ -71,7 +71,8 @@ RequiredModules = @(@{ModuleName = 'MSAL.PS'; GUID = 'c765c957-c730-4520-9c36-6a
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Connect-IPSTAsApplication', 'Connect-IPSTAsDelegated', 
-               'Get-IPSTCoManagedDevice', 'Get-IPSTDeviceConfigurationPolicies', 
+               'Get-IPSTCoManagedDevice', 'Get-IPSTDeviceCompliancePolicies', 
+               'Get-IPSTDeviceConfigurationPolicies', 
                'Get-IPSTDeviceConfigurationPoliciesAssignments', 
                'Get-IPSTDeviceEnrollmentConfigurations', 'Get-IPSTManagedDevice', 
                'New-IPSTAADApp'

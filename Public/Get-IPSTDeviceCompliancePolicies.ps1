@@ -1,11 +1,11 @@
-function Get-IPSTDeviceConfigurationPolicies {
+function Get-IPSTDeviceCompliancePolicies {
   <#
   .SYNOPSIS
-    Get-IPSTDeviceConfigurationPolicies
+    Get-IPSTDeviceCompliancePolicies
   .DESCRIPTION
   
   .PARAMETER PolicyType
-    Device configuration type. E.g. androidWorkProfileTrustedRootCertificate
+    Device compliance type. E.g. androidDeviceOwnerCompliancePolicy
   .PARAMETER PolicyId
     Specifi Device Configuration ID for get specific policy.
   .INPUTS
@@ -17,35 +17,26 @@ function Get-IPSTDeviceConfigurationPolicies {
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTDeviceConfigurationPolicies -PolicyId 00000000-0000-0000-0000-000000000000
+    PS> Get-IPSTDeviceCompliancePolicies -PolicyId 00000000-0000-0000-0000-000000000000
   .EXAMPLE
-    PS> Get-IPSTDeviceConfigurationPolicies -PolicyType windowsUpdateForBusinessConfiguration
+    PS> Get-IPSTDeviceCompliancePolicies -PolicyType androidDeviceOwnerCompliancePolicy
   #>
   [CmdletBinding()]
   param (
     [Parameter()]
     [ValidateSet(
-      "androidWorkProfileTrustedRootCertificate",
-      "androidWorkProfileVpnConfiguration",
-      "androidDeviceOwnerDerivedCredentialAuthenticationConfiguration",
-      "androidDeviceOwnerEnterpriseWiFiConfiguration",
-      "androidDeviceOwnerGeneralDeviceConfiguration",
-      "androidDeviceOwnerImportedPFXCertificateProfile",
-      "androidDeviceOwnerPkcsCertificateProfile",
-      "androidDeviceOwnerScepCertificateProfile",
-      "androidDeviceOwnerTrustedRootCertificate",
-      "androidDeviceOwnerVpnConfiguration",
-      "windowsHealthMonitoringConfiguration",
-      "iosGeneralDeviceConfiguration",
-      "windowsUpdateForBusinessConfiguration",
-      "windows10GeneralConfiguration"
+      "androidDeviceOwnerCompliancePolicy",
+      "androidWorkProfileCompliancePolicy",
+      "iosCompliancePolicy",
+      "macOSCompliancePolicy",
+      "windows10CompliancePolicy"
       )
     ]
     [string]$PolicyType,
     [Parameter()]
     [string]$PolicyId
   )
-  $Resource = '/deviceManagement/deviceConfigurations'
+  $Resource = '/deviceManagement/deviceCompliancePolicies'
   $Params = @{
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
