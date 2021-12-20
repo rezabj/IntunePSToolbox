@@ -1,4 +1,4 @@
-$BuilPath = "..\Build\IntunePSToolbox"
+﻿$BuilPath = "..\Build\IntunePSToolbox"
 if (!(Test-Path -Path $BuilPath -PathType Container)) {
   New-Item -Path $BuilPath -ItemType Directory -Force
 }

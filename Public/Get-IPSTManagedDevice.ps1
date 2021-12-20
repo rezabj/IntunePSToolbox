@@ -1,4 +1,4 @@
-function Get-IPSTManagedDevice {
+﻿function Get-IPSTManagedDevice {
   <#
   .SYNOPSIS
     Get Managed Device.

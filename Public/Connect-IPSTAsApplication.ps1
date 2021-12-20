@@ -1,4 +1,4 @@
-function Connect-IPSTAsApplication {
+﻿function Connect-IPSTAsApplication {
   <#
   .SYNOPSIS
     Connect to AAD application "Intune PS Toolbox"

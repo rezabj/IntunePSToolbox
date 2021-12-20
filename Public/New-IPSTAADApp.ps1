@@ -1,4 +1,4 @@
-function New-IPSTAADApp {
+﻿function New-IPSTAADApp {
     <#
   .SYNOPSIS
     Create new Azure AD Apps for Intune PS Toolbox.

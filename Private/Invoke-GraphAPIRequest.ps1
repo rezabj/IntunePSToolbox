@@ -1,4 +1,4 @@
-function Invoke-GraphAPIRequest {
+﻿function Invoke-GraphAPIRequest {
   <#
       .SYNOPSIS
           Run a Microsoft Graph query.

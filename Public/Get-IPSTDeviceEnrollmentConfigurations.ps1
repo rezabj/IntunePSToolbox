@@ -1,4 +1,4 @@
-function Get-IPSTDeviceEnrollmentConfigurations {
+﻿function Get-IPSTDeviceEnrollmentConfigurations {
     <#
   .SYNOPSIS
     Get-IPSTDeviceEnrollmentConfigurations

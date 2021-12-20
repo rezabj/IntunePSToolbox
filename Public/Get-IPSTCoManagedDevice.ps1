@@ -1,4 +1,4 @@
-function Get-IPSTCoManagedDevice {
+﻿function Get-IPSTCoManagedDevice {
   <#
   .SYNOPSIS
     Get CoManagedDevice

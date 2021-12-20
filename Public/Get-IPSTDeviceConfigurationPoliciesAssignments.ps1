@@ -1,4 +1,4 @@
-function Get-IPSTDeviceConfigurationPoliciesAssignments {
+﻿function Get-IPSTDeviceConfigurationPoliciesAssignments {
   <#
     .SYNOPSIS
       Get device configuration assignments.

@@ -1,4 +1,4 @@
-function Get-IPSTDeviceConfigurationPolicies {
+﻿function Get-IPSTDeviceConfigurationPolicies {
   <#
   .SYNOPSIS
     Get-IPSTDeviceConfigurationPolicies
