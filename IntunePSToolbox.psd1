@@ -51,8 +51,8 @@ PowerShellVersion = '5.0'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @('MSAL.PS', 
-               'AzureAD')
+RequiredModules = @(@{ModuleName = 'MSAL.PS'; GUID = 'c765c957-c730-4520-9c36-6a522e35d60b'; ModuleVersion = '4.36.1.2'; }, 
+               @{ModuleName = 'AzureAD'; GUID = 'd60c0004-962d-4dfb-8d28-5707572ffd00'; ModuleVersion = '2.0.2.130'; })
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
