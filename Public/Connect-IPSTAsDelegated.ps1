@@ -21,10 +21,13 @@
   #>
 
   param (
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$true, Position=0)]
     [string]$TenantID,
-    [Parameter(Mandatory=$true)]
-    [string]$ClientID
+    [Parameter(Mandatory=$true, Position=1)]
+    [string]$ClientID,
+    [ValidateSet("beta","1.0")]
+    [Parameter(Mandatory=$false, Position=2)]
+    [string]$Endpoint
   )
   # https://docs.microsoft.com/en-us/graph/permissions-reference#intune-device-management-permissions
   $AccessToken = Get-MsalToken -ClientId $ClientID -TenantId $TenantID -Interactive `
@@ -34,8 +37,12 @@
            'https://graph.microsoft.com/DeviceManagementConfiguration.Read.All', `
            'https://graph.microsoft.com/DeviceManagementManagedDevices.Read.All', `
            'https://graph.microsoft.com/DeviceManagementRBAC.Read.All', `
-           'https://graph.microsoft.com/DeviceManagementServiceConfig.Read.All'
-           
+           'https://graph.microsoft.com/DeviceManagementServiceConfig.Read.All'  
   $Global:IPSTAccessToken = $AccessToken.AccessToken
-  $Global:IPSTGraphApiEnv = "beta"
+  if ($Endpoint -eq "1.0") {
+    $Global:IPSTGraphApiEnv = "1.0"
+  } else {
+    $Global:IPSTGraphApiEnv = "beta"
+  }
+  
 }
