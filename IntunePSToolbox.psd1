@@ -73,7 +73,6 @@ RequiredModules = @(@{ModuleName = 'MSAL.PS'; GUID = 'c765c957-c730-4520-9c36-6a
 FunctionsToExport = 'Connect-IPSTAsApplication', 'Connect-IPSTAsDelegated', 
                'Get-IPSTCoManagedDevice', 'Get-IPSTDeviceCompliancePolicies', 
                'Get-IPSTDeviceConfigurationPolicies', 
-               'Get-IPSTDeviceConfigurationPoliciesAssignments', 
                'Get-IPSTDeviceEnrollmentConfigurations', 'Get-IPSTManagedDevice', 
                'New-IPSTAADApp'
 
