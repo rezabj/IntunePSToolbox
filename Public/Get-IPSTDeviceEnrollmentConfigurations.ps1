@@ -17,43 +17,59 @@
   .EXAMPLE
     PS> Get-IPSTDeviceEnrollmentConfigurations -PolicyId 00000000-0000-0000-0000-000000000000
   #>
-  [CmdletBinding()]
+  [CmdletBinding(DefaultParameterSetName="Global")]
+  # /deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfigurationId}/assignments
   param (
-    [Parameter(Position=0)][string]$PolicyId,
-
-    [Parameter(Position=1)]
+    [Parameter(ParameterSetName='Global')]
     [ValidateSet(
       "deviceEnrollmentLimitConfiguration",
       "deviceEnrollmentPlatformRestrictionsConfiguration",
       "deviceEnrollmentWindowsHelloForBusinessConfiguration",
       "windows10EnrollmentCompletionPageConfiguration"
       )
-    ][string]$PolicyType
+    ][string]$PolicyType,
+
+    
+    [Parameter(ParameterSetName='Assignment')][switch]$Assignment,
+
+    [Parameter(ParameterSetName='Global',     Mandatory=$false, Position=0)]
+    [Parameter(ParameterSetName='Assignment', Mandatory=$true,  Position=0)]
+    [string]$PolicyId
+    
   )
   $Resource = '/deviceManagement/deviceEnrollmentConfigurations'
   $Params = @{
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
-  if ($PolicyId) {
+
+  if ($Assignment) {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId + "/assignments"
     }
+    $Result = Invoke-GraphAPIRequest @Params
+    return $Result 
   } else {
-    $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+    if ($PolicyId) {
+      $Params += @{
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId
+      }
+    } else {
+      $Params += @{
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+      }
     }
-  }
-  $Result = Invoke-GraphAPIRequest @Params
-  if ($PolicyType) {
-    $PolicyTypeLong = "#microsoft.graph." + $PolicyType
-    $FiltredResult = @()
-    foreach ($policy in $Result) {
-      if ($policy.'@odata.type' -eq $PolicyTypeLong) {
-        $FiltredResult += $policy
-      }      
+    $Result = Invoke-GraphAPIRequest @Params
+    if ($PolicyType) {
+      $PolicyTypeLong = "#microsoft.graph." + $PolicyType
+      $FiltredResult = @()
+      foreach ($policy in $Result) {
+        if ($policy.'@odata.type' -eq $PolicyTypeLong) {
+          $FiltredResult += $policy
+        }      
+      }
+      $Result = $FiltredResult
     }
-    $Result = $FiltredResult
+    return $Result 
   }
-  return $Result
 }
