@@ -4,7 +4,7 @@
     Get-IPSTDeviceEnrollmentConfigurations
   .DESCRIPTION
     
-  .PARAMETER DeviceEnrollmentConfigurationId
+  .PARAMETER PolicyId
     Specifi Device Enrollment Configuration ID for get specific policy.
   .INPUTS
     None
@@ -15,21 +15,29 @@
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTDeviceEnrollmentConfigurations -DeviceEnrollmentConfigurationId 00000000-0000-0000-0000-000000000000
+    PS> Get-IPSTDeviceEnrollmentConfigurations -PolicyId 00000000-0000-0000-0000-000000000000
   #>
   [CmdletBinding()]
   param (
-      [Parameter()]
-      [string]$DeviceEnrollmentConfigurationId
+    [Parameter(Position=0)][string]$PolicyId,
+
+    [Parameter(Position=1)]
+    [ValidateSet(
+      "deviceEnrollmentLimitConfiguration",
+      "deviceEnrollmentPlatformRestrictionsConfiguration",
+      "deviceEnrollmentWindowsHelloForBusinessConfiguration",
+      "windows10EnrollmentCompletionPageConfiguration"
+      )
+    ][string]$PolicyType
   )
   $Resource = '/deviceManagement/deviceEnrollmentConfigurations'
   $Params = @{
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
-  if ($DeviceConfigurationId) {
+  if ($PolicyId) {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $DeviceEnrollmentConfigurationId
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId
     }
   } else {
     $Params += @{
@@ -37,5 +45,15 @@
     }
   }
   $Result = Invoke-GraphAPIRequest @Params
+  if ($PolicyType) {
+    $PolicyTypeLong = "#microsoft.graph." + $PolicyType
+    $FiltredResult = @()
+    foreach ($policy in $Result) {
+      if ($policy.'@odata.type' -eq $PolicyTypeLong) {
+        $FiltredResult += $policy
+      }      
+    }
+    $Result = $FiltredResult
+  }
   return $Result
 }
