@@ -17,23 +17,46 @@ function Get-IPSTGroups {
   .EXAMPLE
     PS> Get-IPSTGroups -GroupID 00000000-0000-0000-0000-000000000000
   #>
-  [CmdletBinding()]
+  [CmdletBinding(DefaultParameterSetName="Global")]
   param (
-      [Parameter()]
-      [string]$GroupId
+    [Parameter(ParameterSetName='Members',          Mandatory=$false,Position=0)][switch]$Members,
+    [Parameter(ParameterSetName='transitiveMembers',Mandatory=$false,Position=0)][switch]$transitiveMembers,
+
+    [Parameter(ParameterSetName='Global',           Mandatory=$false,Position=1)]
+    [Parameter(ParameterSetName='Members',          Mandatory=$true, Position=2)]
+    [Parameter(ParameterSetName='transitiveMembers',Mandatory=$true, Position=2)]
+    [string]$GroupId
   )
   $Resource = '/groups'
   $Params = @{
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
-  if ($GroupId) {
-    $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $DeviceId
+  
+  switch ($PsCmdlet.ParameterSetName) {
+    Members {
+      $Params += @{
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $GroupId + "/Members"
+      }
+      break
     }
-  } else {
-    $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+    transitiveMembers {
+      $Params += @{
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $GroupId + "/transitiveMembers"
+      }
+      break
+    }
+    Default {
+      if ($GroupId) {
+        $Params += @{
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $GroupId
+        }
+      } else {
+        $Params += @{
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+        }
+      }
+      break
     }
   }
   $Result = Invoke-GraphAPIRequest @Params
