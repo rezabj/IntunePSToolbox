@@ -27,7 +27,7 @@
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
-  if ($DeviceConfigurationId) {
+  if ($DeviceId) {
     $Params += @{
       "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $DeviceId
     }
