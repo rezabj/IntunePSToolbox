@@ -1,4 +1,4 @@
-﻿$version = New-Object System.Version(0, 0, 1, 2)
+﻿$version = New-Object System.Version(0, 0, 1, 3)
 $functions = Get-Item -Path ..\Public\*.ps1
 $functionlist = @()
 foreach ($function in $functions) {
