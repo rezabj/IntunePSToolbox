@@ -6,6 +6,8 @@ function Get-IPSTDomains {
     TODO
   .PARAMETER Domain
     Domain name (e.g. contoso.com).
+  .PARAMETER isDefault
+    Return default domain
   .INPUTS
     None
   .OUTPUTS
@@ -21,8 +23,8 @@ function Get-IPSTDomains {
   param (
     [Parameter(ParameterSetName='Global', Mandatory=$false,Position=0)]
     [string]$Domain,
-    [Parameter(ParameterSetName='DefaultDomain', Mandatory=$false,Position=0)]
-    [switch]$DefaultDomain
+    [Parameter(ParameterSetName='isDefault', Mandatory=$false,Position=0)]
+    [switch]$isDefault
   )
   $Resource = '/domains'
   $Params = @{
@@ -31,7 +33,7 @@ function Get-IPSTDomains {
   }
 
   switch ($PsCmdlet.ParameterSetName) {
-    DefaultDomain { 
+    isDefault { 
       $Params += @{
         # "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "?`$filter=isDefault eq True"
         "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
