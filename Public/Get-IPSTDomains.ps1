@@ -17,26 +17,45 @@ function Get-IPSTDomains {
   .EXAMPLE
     PS> Get-IPSTTenant
   #>
-  [CmdletBinding()]
+  [CmdletBinding(DefaultParameterSetName="Global")]
   param (
-    [Parameter()]
-    [string]$Domain
-    
+    [Parameter(ParameterSetName='Global', Mandatory=$false,Position=0)]
+    [string]$Domain,
+    [Parameter(ParameterSetName='DefaultDomain', Mandatory=$false,Position=0)]
+    [switch]$DefaultDomain
   )
   $Resource = '/domains'
   $Params = @{
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
-  if ($Domain) {
-    $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Domain
+
+  switch ($PsCmdlet.ParameterSetName) {
+    DefaultDomain { 
+      $Params += @{
+        # "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "?`$filter=isDefault eq True"
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+      }
+      $Result = Invoke-GraphAPIRequest @Params
+      foreach ($line in $Result) {
+        if ($line.isDefault -eq $true) {
+          $filtredResult = $line
+        }
+      }
+      return $filtredResult
     }
-  } else {
-    $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+    Default {
+      if ($Domain) {
+        $Params += @{
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Domain
+        }
+      } else {
+        $Params += @{
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+        }
+      }
+      $Result = Invoke-GraphAPIRequest @Params
+      return $Result
     }
   }
-  $Result = Invoke-GraphAPIRequest @Params
-  return $Result
 }
