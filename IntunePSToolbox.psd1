@@ -75,7 +75,7 @@ FunctionsToExport = 'Connect-IPSTAsApplication', 'Connect-IPSTAsDelegated',
                'Get-IPSTDeviceConfigurationPolicies', 
                'Get-IPSTDeviceEnrollmentConfigurations', 'Get-IPSTDomains', 
                'Get-IPSTGroups', 'Get-IPSTManagedDevice', 'Get-IPSTMobileApps', 
-               'Get-IPSTRBACScopes', 'Get-IPSTSBIntents', 'Get-IPSTSBTemplates', 
+               'Get-IPSTRBACScopeTags', 'Get-IPSTSBIntents', 'Get-IPSTSBTemplates', 
                'Get-IPSTTenant', 'New-IPSTAADApp'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
