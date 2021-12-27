@@ -30,7 +30,7 @@ CompanyName = ''
 Copyright = '(c) 2021 Jan Rezab <honza@rezab.eu>. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'Intune Powershell Toolbox'
+Description = 'Intune Powershell Toolbox is set of functions to manage Microsoft Intune via Graph API.'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '5.0'
@@ -102,10 +102,10 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = 'Intune','Graph','PowerShell'
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/rezabj/IntunePSToolbox/blob/main/LICENSE'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/rezabj/IntunePSToolbox'
@@ -114,7 +114,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+        ReleaseNotes = 'https://github.com/rezabj/IntunePSToolbox/releases'
 
         # Prerelease string of this module
         # Prerelease = ''

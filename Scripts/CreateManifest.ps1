@@ -17,10 +17,16 @@ $RequiredModules   = @(
     Guid = "d60c0004-962d-4dfb-8d28-5707572ffd00";
   }
 )
+$PrivateData = @{
+    Tags = @("Intune","Graph","PowerShell")
+    LicenseUri = 'https://github.com/rezabj/IntunePSToolbox/blob/main/LICENSE'
+    ProjectUri = 'https://github.com/rezabj/IntunePSToolbox'
+    ReleaseNotes = 'https://github.com/rezabj/IntunePSToolbox/releases'
+}
 Update-ModuleManifest -Path ..\IntunePSToolbox.psd1 `
   -Author "Jan Rezab <honza@rezab.eu>" `
   -ModuleVersion $version `
-  -Description "Intune Powershell Toolbox" `
+  -Description "Intune Powershell Toolbox is set of functions to manage Microsoft Intune via Graph API." `
   -RootModule "IntunePSToolbox.psm1" `
   -RequiredModules $RequiredModules `
   -FunctionsToExport $functionlist `
@@ -28,6 +34,7 @@ Update-ModuleManifest -Path ..\IntunePSToolbox.psd1 `
   -AliasesToExport "Connect-Intune" `
   -PowerShellVersion "5.0" `
   -ProjectUri "https://github.com/rezabj/IntunePSToolbox" `
-  -HelpInfoUri "https://github.com/rezabj/IntunePSToolbox/Docs"
+  -HelpInfoUri "https://github.com/rezabj/IntunePSToolbox/Docs" `
+  -PrivateData $PrivateData
 
 Set-Location ..
