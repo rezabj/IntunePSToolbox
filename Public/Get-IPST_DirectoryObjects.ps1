@@ -17,7 +17,7 @@
   .EXAMPLE
     PS> Get-IPST_DirectoryObjects -Id 00000000-0000-0000-0000-000000000000
   .LINK
-    MS Docs: https://docs.microsoft.com/en-us/graph/api/directoryobject-get?view=graph-rest-beta&tabs=http
+    MS Docs: https://docs.microsoft.com/en-us/graph/api/directoryobject-get?view=graph-rest-beta
   .LINK
     Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_DirectoryObjects.md
   #>
