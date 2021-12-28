@@ -1,21 +1,22 @@
-﻿# New-IPSTAADApp
+﻿# Get-IPST_deviceManagement_comanagedDevices
 
 ## SYNOPSIS 
-Create new Azure AD Apps for Intune PS Toolbox.
+Get CoManagedDevice
 
 ## SYNTAX
 ```Powershell
-New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
+Get-IPST_deviceManagement_comanagedDevices [[-DeviceId] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
 
 ## PARAMETERS
 
-    -AppLogin <Boolean>
+    -DeviceId <String>
+        Specifi DeviceID for get specific device.
         
-        Required?                    true
+        Required?                    false
         Position?                    1
-        Default value                False
+        Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
@@ -31,6 +32,6 @@ New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
 
 ## EXAMPLE 1
 ```Powershell
-New-IPSTAADApp -AppLogin $True
+Get-IPST_deviceManagement_comanagedDevices -DeviceID 00000000-0000-0000-0000-000000000000
 ```
 

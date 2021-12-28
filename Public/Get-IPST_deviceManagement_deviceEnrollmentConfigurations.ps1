@@ -1,7 +1,7 @@
-﻿function Get-IPSTDeviceEnrollmentConfigurations {
+﻿function Get-IPST_deviceManagement_deviceEnrollmentConfigurations {
     <#
   .SYNOPSIS
-    Get-IPSTDeviceEnrollmentConfigurations
+    Get-IPST_deviceManagement_deviceEnrollmentConfigurations
   .DESCRIPTION
     
   .PARAMETER PolicyId
@@ -15,7 +15,7 @@
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTDeviceEnrollmentConfigurations -PolicyId 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceManagement_deviceEnrollmentConfigurations -PolicyId 00000000-0000-0000-0000-000000000000
   #>
   [CmdletBinding(DefaultParameterSetName="Global")]
   # /deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfigurationId}/assignments

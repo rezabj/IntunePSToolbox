@@ -1,4 +1,4 @@
-function Get-IPSTDomains {
+function Get-IPST_Domains {
   <#
   .SYNOPSIS
     Get AAD domains.
@@ -17,7 +17,7 @@ function Get-IPSTDomains {
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTTenant
+    PS> Get-IPST_Domains
   #>
   [CmdletBinding(DefaultParameterSetName="Global")]
   param (
@@ -35,7 +35,6 @@ function Get-IPSTDomains {
   switch ($PsCmdlet.ParameterSetName) {
     isDefault { 
       $Params += @{
-        # "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "?`$filter=isDefault eq True"
         "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
       }
       $Result = Invoke-GraphAPIRequest @Params

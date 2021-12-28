@@ -1,4 +1,4 @@
-﻿function Get-IPSTMobileApps {
+﻿function Get-IPST_deviceAppManagement_mobileApps {
   <#
   .SYNOPSIS
     Get Mobile Apps.
@@ -15,7 +15,7 @@
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTMobileApps -AppID 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceAppManagement_mobileApps -AppID 00000000-0000-0000-0000-000000000000
   #>
   [CmdletBinding()]
   param (

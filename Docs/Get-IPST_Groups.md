@@ -1,39 +1,40 @@
-﻿# Connect-IPSTAsDelegated
+﻿# Get-IPST_Groups
 
 ## SYNOPSIS 
-Connect to AAD application "Intune PS Toolbox"
+Get AAD groups
 
 ## SYNTAX
 ```Powershell
-Connect-IPSTAsDelegated [-TenantID] <String> [-ClientID] <String> [[-Endpoint] <String>] [<CommonParameters>]
+Get-IPST_Groups [[-GroupId] <String>] [<CommonParameters>]
+
+Get-IPST_Groups [[-Members]] [-GroupId] <String> [<CommonParameters>]
+
+Get-IPST_Groups [[-transitiveMembers]] [-GroupId] <String> [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+
 ## PARAMETERS
 
-    -TenantID <String>
-        Tenant ID.
-        
-        Required?                    true
-        Position?                    1
-        Default value                
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-        
-    -ClientID <String>
-        Azure App (Client) ID.
-        
-        Required?                    true
-        Position?                    2
-        Default value                
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-        
-    -Endpoint <String>
-        Grahp API environment - beta or 1.0
+    -Members [<SwitchParameter>]
         
         Required?                    false
-        Position?                    3
+        Position?                    1
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -transitiveMembers [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    1
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -GroupId <String>
+        
+        Required?                    false
+        Position?                    2
         Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
@@ -50,6 +51,6 @@ Connect-IPSTAsDelegated [-TenantID] <String> [-ClientID] <String> [[-Endpoint] <
 
 ## EXAMPLE 1
 ```Powershell
-Connect-IPSTAsDelegated -TenantID 00000000-0000-0000-0000-000000000000 -ClientID 00000000-0000-0000-0000-000000000000
+Get-IPST_Domains -GroupID 00000000-0000-0000-0000-000000000000
 ```
 

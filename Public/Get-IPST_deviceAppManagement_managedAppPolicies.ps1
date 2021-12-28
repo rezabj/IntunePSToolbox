@@ -1,11 +1,11 @@
-function Get-IPSTRBACScopeTags {
+﻿function Get-IPST_deviceAppManagement_managedAppPolicies {
   <#
   .SYNOPSIS
-    Get Scopes tags
+    Get App Protection Policies.
   .DESCRIPTION
-    https://docs.microsoft.com/en-us/graph/api/intune-rbac-rolescopetag-list?view=graph-rest-beta
+    https://docs.microsoft.com/en-us/graph/api/intune-mam-managedappprotection-list?view=graph-rest-1.0
   .PARAMETER Id
-    Specifi ID for get specific scope tag.
+    Specifi ID for get specific policies.
   .INPUTS
     None
   .OUTPUTS
@@ -15,14 +15,14 @@ function Get-IPSTRBACScopeTags {
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTRBACScopeTags -Id 00000000-0000-0000-0000-000000000000
+    PS> Get-IPSTmanagedAppPolicies -Id 00000000-0000-0000-0000-000000000000
   #>
-  [CmdletBinding(DefaultParameterSetName='Global')] 
+  [CmdletBinding(DefaultParameterSetName='Global')]
   param (
     [Parameter(ParameterSetName='Global',Mandatory=$false,Position=0)]
     [string]$Id
   )
-  $Resource = '/deviceManagement/roleScopeTags'
+  $Resource = '/deviceAppManagement/managedAppPolicies'
   $Params = @{
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'

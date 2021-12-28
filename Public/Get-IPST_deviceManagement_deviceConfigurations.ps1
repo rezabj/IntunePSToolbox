@@ -1,7 +1,7 @@
-﻿function Get-IPSTDeviceConfigurationPolicies {
+﻿function Get-IPST_deviceManagement_deviceConfigurations {
   <#
   .SYNOPSIS
-    Get-IPSTDeviceConfigurationPolicies
+    Get-IPST_deviceManagement_deviceConfigurations
   .DESCRIPTION
   
   .PARAMETER PolicyType
@@ -17,9 +17,9 @@
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTDeviceConfigurationPolicies -PolicyId 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceManagement_deviceConfigurations -PolicyId 00000000-0000-0000-0000-000000000000
   .EXAMPLE
-    PS> Get-IPSTDeviceConfigurationPolicies -PolicyType windowsUpdateForBusinessConfiguration
+    PS> Get-IPST_deviceManagement_deviceConfigurations -PolicyType windowsUpdateForBusinessConfiguration
   #>
   [CmdletBinding(DefaultParameterSetName="Global")]
   param (

@@ -1,4 +1,4 @@
-﻿function Get-IPSTSBTemplates {
+﻿function Get-IPST_deviceManagement_templates {
   <#
   .SYNOPSIS
     Get security baselines.
@@ -15,7 +15,7 @@
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTSBTemplates -Id 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceManagement_templates -Id 00000000-0000-0000-0000-000000000000
   #>
   [CmdletBinding(DefaultParameterSetName='Global')]
   param (

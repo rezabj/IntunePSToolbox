@@ -1,48 +1,39 @@
-﻿# Connect-IPSTAsApplication
+﻿# Get-IPST_deviceManagement_deviceEnrollmentConfigurations
 
 ## SYNOPSIS 
-Connect to AAD application "Intune PS Toolbox"
+Get-IPST_deviceManagement_deviceEnrollmentConfigurations
 
 ## SYNTAX
 ```Powershell
-Connect-IPSTAsApplication -TenantID <String> -ClientID <String> -Secret <SecureString> [[-Endpoint] <String>] [<CommonParameters>]
+Get-IPST_deviceManagement_deviceEnrollmentConfigurations [-PolicyType <String>] [[-PolicyId] <String>] [<CommonParameters>]
+
+Get-IPST_deviceManagement_deviceEnrollmentConfigurations [-Assignment] [-PolicyId] <String> [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+
 ## PARAMETERS
 
-    -TenantID <String>
-        Tenant ID.
-        
-        Required?                    true
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-        
-    -ClientID <String>
-        Azure App (Client) ID.
-        
-        Required?                    true
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-        
-    -Secret <SecureString>
-        App secret
-        
-        Required?                    true
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-        
-    -Endpoint <String>
-        Grahp API environment - beta or 1.0
+    -PolicyType <String>
         
         Required?                    false
-        Position?                    3
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Assignment [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -PolicyId <String>
+        Specifi Device Enrollment Configuration ID for get specific policy.
+        
+        Required?                    false
+        Position?                    1
         Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
@@ -59,6 +50,6 @@ Connect-IPSTAsApplication -TenantID <String> -ClientID <String> -Secret <SecureS
 
 ## EXAMPLE 1
 ```Powershell
-Connect-IPSTAsApplication -TenantID 00000000-0000-0000-0000-000000000000 -ClientID 00000000-0000-0000-0000-000000000000 -Secret XXXXXXXX
+Get-IPST_deviceManagement_deviceEnrollmentConfigurations -PolicyId 00000000-0000-0000-0000-000000000000
 ```
 

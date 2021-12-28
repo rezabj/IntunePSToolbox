@@ -1,7 +1,7 @@
-﻿function Get-IPSTDeviceCompliancePolicies {
+﻿function Get-IPST_deviceManagement_deviceCompliancePolicies {
   <#
   .SYNOPSIS
-    Get-IPSTDeviceCompliancePolicies
+    Get-IPST_deviceManagement_deviceCompliancePolicies
   .DESCRIPTION
   
   .PARAMETER PolicyType
@@ -17,9 +17,9 @@
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTDeviceCompliancePolicies -PolicyId 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceManagement_deviceCompliancePolicies -PolicyId 00000000-0000-0000-0000-000000000000
   .EXAMPLE
-    PS> Get-IPSTDeviceCompliancePolicies -PolicyType androidDeviceOwnerCompliancePolicy
+    PS> Get-IPST_deviceManagement_deviceCompliancePolicies -PolicyType androidDeviceOwnerCompliancePolicy
   #>
   [CmdletBinding(DefaultParameterSetName='Global')]
   param (

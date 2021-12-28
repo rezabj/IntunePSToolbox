@@ -1,4 +1,4 @@
-﻿function Get-IPSTCoManagedDevice {
+﻿function Get-IPST_deviceManagement_comanagedDevices {
   <#
   .SYNOPSIS
     Get CoManagedDevice
@@ -15,7 +15,7 @@
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTCoManagedDevice -DeviceID 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceManagement_comanagedDevices -DeviceID 00000000-0000-0000-0000-000000000000
   #>
 
   [CmdletBinding()]

@@ -1,21 +1,22 @@
-﻿# New-IPSTAADApp
+﻿# Get-IPST_deviceAppManagement_iosManagedAppProtections
 
 ## SYNOPSIS 
-Create new Azure AD Apps for Intune PS Toolbox.
+Get App Protection Policies.
 
 ## SYNTAX
 ```Powershell
-New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
+Get-IPST_deviceAppManagement_iosManagedAppProtections [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
-
+ 
 ## PARAMETERS
 
-    -AppLogin <Boolean>
+    -Id <String>
+        Specifi ID for get specific policies.
         
-        Required?                    true
+        Required?                    false
         Position?                    1
-        Default value                False
+        Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
@@ -31,6 +32,6 @@ New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
 
 ## EXAMPLE 1
 ```Powershell
-New-IPSTAADApp -AppLogin $True
+Get-IPST_deviceAppManagement_iosManagedAppProtections -Id 00000000-0000-0000-0000-000000000000
 ```
 

@@ -1,4 +1,4 @@
-﻿function Get-IPSTSBIntents {
+﻿function Get-IPST_deviceManagement_intents {
   <#
   .SYNOPSIS
     Get security baselines profiles.
@@ -31,9 +31,9 @@
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTSBIntents -Id 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceManagement_intents -Id 00000000-0000-0000-0000-000000000000
   .EXAMPLE
-    PS> Get-IPSTSBIntents -Assignment -Id 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceManagement_intents -Assignment -Id 00000000-0000-0000-0000-000000000000
   #>
   [CmdletBinding(DefaultParameterSetName='Global')]
   param (

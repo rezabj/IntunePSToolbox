@@ -1,21 +1,22 @@
-﻿# New-IPSTAADApp
+﻿# Get-IPST_deviceAppManagement_mobileApps
 
 ## SYNOPSIS 
-Create new Azure AD Apps for Intune PS Toolbox.
+Get Mobile Apps.
 
 ## SYNTAX
 ```Powershell
-New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
+Get-IPST_deviceAppManagement_mobileApps [[-AppId] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
 
 ## PARAMETERS
 
-    -AppLogin <Boolean>
+    -AppId <String>
+        Specifi AppID for get specific application.
         
-        Required?                    true
+        Required?                    false
         Position?                    1
-        Default value                False
+        Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
@@ -31,6 +32,6 @@ New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
 
 ## EXAMPLE 1
 ```Powershell
-New-IPSTAADApp -AppLogin $True
+Get-IPST_deviceAppManagement_mobileApps -AppID 00000000-0000-0000-0000-000000000000
 ```
 

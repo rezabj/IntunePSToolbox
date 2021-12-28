@@ -1,4 +1,4 @@
-function Get-IPSTGroups {
+function Get-IPST_Groups {
   <#
   .SYNOPSIS
     Get AAD groups
@@ -15,7 +15,7 @@ function Get-IPSTGroups {
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTGroups -GroupID 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_Domains -GroupID 00000000-0000-0000-0000-000000000000
   #>
   [CmdletBinding(DefaultParameterSetName="Global")]
   param (

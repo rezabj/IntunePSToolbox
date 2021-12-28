@@ -1,4 +1,4 @@
-function Get-IPSTTenant {
+function Get-IPST_organization {
   <#
   .SYNOPSIS
     Get AAD Tenant info.
@@ -13,7 +13,7 @@ function Get-IPSTTenant {
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTTenant
+    PS> Get-IPST_organization
   #>
   [CmdletBinding()]
   param (

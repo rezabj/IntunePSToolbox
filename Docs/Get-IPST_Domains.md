@@ -1,19 +1,31 @@
-﻿# New-IPSTAADApp
+﻿# Get-IPST_Domains
 
 ## SYNOPSIS 
-Create new Azure AD Apps for Intune PS Toolbox.
+Get AAD domains.
 
 ## SYNTAX
 ```Powershell
-New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
+Get-IPST_Domains [[-Domain] <String>] [<CommonParameters>]
+
+Get-IPST_Domains [[-isDefault]] [<CommonParameters>]
 ```
 ## DESCRIPTION
-
+ 
 ## PARAMETERS
 
-    -AppLogin <Boolean>
+    -Domain <String>
+        Domain name (e.g. contoso.com).
         
-        Required?                    true
+        Required?                    false
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -isDefault [<SwitchParameter>]
+        Return default domain
+        
+        Required?                    false
         Position?                    1
         Default value                False
         Accept pipeline input?       false
@@ -31,6 +43,6 @@ New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
 
 ## EXAMPLE 1
 ```Powershell
-New-IPSTAADApp -AppLogin $True
+Get-IPST_Domains
 ```
 

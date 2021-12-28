@@ -1,4 +1,4 @@
-﻿function Get-IPSTManagedDevice {
+﻿function Get-IPST_deviceManagement_managedDevices {
   <#
   .SYNOPSIS
     Get Managed Device.
@@ -15,7 +15,7 @@
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPSTManagedDevice -DeviceID 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceManagement_managedDevices -DeviceID 00000000-0000-0000-0000-000000000000
   #>
   [CmdletBinding()]
   param (
