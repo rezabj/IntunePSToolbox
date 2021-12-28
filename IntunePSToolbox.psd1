@@ -89,8 +89,9 @@ FunctionsToExport = 'Connect-IPSTAsApplication', 'Connect-IPSTAsDelegated',
                'Get-IPST_deviceManagement_roleAssignments', 
                'Get-IPST_deviceManagement_roleDefinitions', 
                'Get-IPST_deviceManagement_roleScopeTags', 
-               'Get-IPST_deviceManagement_templates', 'Get-IPST_Domains', 
-               'Get-IPST_Groups', 'Get-IPST_organization', 'New-IPSTAADApp'
+               'Get-IPST_deviceManagement_templates', 'Get-IPST_DirectoryObjects', 
+               'Get-IPST_Domains', 'Get-IPST_Groups', 'Get-IPST_organization', 
+               'New-IPSTAADApp'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
