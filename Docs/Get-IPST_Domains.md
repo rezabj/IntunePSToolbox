@@ -10,7 +10,7 @@ Get-IPST_Domains [[-Domain] <String>] [<CommonParameters>]
 Get-IPST_Domains [[-isDefault]] [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+TODO
 ## PARAMETERS
 
     -Domain <String>

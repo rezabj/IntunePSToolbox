@@ -8,7 +8,7 @@ Get App Protection Policies.
 Get-IPST_deviceAppManagement_targetedManagedAppConfigurations [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+https://docs.microsoft.com/en-us/graph/api/intune-mam-targetedmanagedappconfiguration-list?view=graph-rest-1.0
 ## PARAMETERS
 
     -Id <String>

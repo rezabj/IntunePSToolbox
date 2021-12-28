@@ -14,7 +14,7 @@ foreach ($command in $commands) {
   $MDHelp += $Syntax.Trim() + "`n"
   $MDHelp += '```' + "`n"
   $MDHelp += "## DESCRIPTION`n"
-  $MDHelp += $PSHelp.description + "`n"
+  $MDHelp += $PSHelp.description.text + "`n"
   $MDHelp += "## PARAMETERS`n"
   foreach ($parameter in $PSHelp.parameters) {
     $param = $parameter | Out-String

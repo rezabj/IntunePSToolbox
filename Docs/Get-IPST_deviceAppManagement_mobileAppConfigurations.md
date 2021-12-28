@@ -8,7 +8,7 @@ Get App Protection Policies.
 Get-IPST_deviceAppManagement_mobileAppConfigurations [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+https://docs.microsoft.com/cs-cz/graph/api/intune-apps-androidforworkmobileappconfiguration-list?view=graph-rest-beta
 ## PARAMETERS
 
     -Id <String>

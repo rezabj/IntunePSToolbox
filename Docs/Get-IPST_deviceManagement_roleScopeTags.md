@@ -8,7 +8,7 @@ Get Scopes tags
 Get-IPST_deviceManagement_roleScopeTags [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+https://docs.microsoft.com/en-us/graph/api/intune-rbac-rolescopetag-list?view=graph-rest-beta
 ## PARAMETERS
 
     -Id <String>

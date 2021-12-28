@@ -8,7 +8,7 @@ Connect to AAD application "Intune PS Toolbox"
 Connect-IPSTAsApplication -TenantID <String> -ClientID <String> -Secret <SecureString> [[-Endpoint] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+Before you use this function create Azure AD Application. You can use function New-IPSTAADApp for create new one. Be sure that you have appropriate permission for create Azure AD App.
 ## PARAMETERS
 
     -TenantID <String>

@@ -8,7 +8,7 @@ Get App Protection Policies.
 Get-IPST_deviceManagement_androidManagedStoreAppConfigurationSchemas [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+https://docs.microsoft.com/en-us/graph/api/intune-androidforwork-androidmanagedstoreappconfigurationschema-list?view=graph-rest-beta
 ## PARAMETERS
 
     -Id <String>

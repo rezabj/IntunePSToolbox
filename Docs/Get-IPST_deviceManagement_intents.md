@@ -24,7 +24,7 @@ Get-IPST_deviceManagement_intents [[-UserStates]] [-Id] <String> [<CommonParamet
 Get-IPST_deviceManagement_intents [[-UserStateSummary]] [-Id] <String> [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+TODO
 ## PARAMETERS
 
     -Assignment [<SwitchParameter>]

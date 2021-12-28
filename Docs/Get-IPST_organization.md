@@ -8,7 +8,7 @@ Get AAD Tenant info.
 Get-IPST_organization [<CommonParameters>]
 ```
 ## DESCRIPTION
- 
+TODO
 ## PARAMETERS
 
 
