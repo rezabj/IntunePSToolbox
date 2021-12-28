@@ -1,4 +1,4 @@
-function Get-IPST_Groups {
+﻿function Get-IPST_Groups {
   <#
   .SYNOPSIS
     Get AAD groups

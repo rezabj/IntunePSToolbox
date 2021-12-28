@@ -1,4 +1,4 @@
-function Get-IPST_organization {
+﻿function Get-IPST_organization {
   <#
   .SYNOPSIS
     Get AAD Tenant info.

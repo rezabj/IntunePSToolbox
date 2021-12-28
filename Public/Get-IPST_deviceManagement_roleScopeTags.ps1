@@ -1,4 +1,4 @@
-function Get-IPST_deviceManagement_roleScopeTags {
+﻿function Get-IPST_deviceManagement_roleScopeTags {
   <#
   .SYNOPSIS
     Get Scopes tags

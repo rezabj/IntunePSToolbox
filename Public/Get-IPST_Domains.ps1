@@ -1,4 +1,4 @@
-function Get-IPST_Domains {
+﻿function Get-IPST_Domains {
   <#
   .SYNOPSIS
     Get AAD domains.

@@ -1,4 +1,4 @@
-function Get-IPST_DirectoryObjects {
+﻿function Get-IPST_DirectoryObjects {
   <#
   .SYNOPSIS
     Get AAD object
