@@ -23,7 +23,7 @@ TODO
         Accept wildcard characters?  false
         
     -isDefault [<SwitchParameter>]
-        Return default domain
+        Return default domain.
         
         Required?                    false
         Position?                    1
@@ -41,8 +41,14 @@ TODO
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
 Get-IPST_Domains
 ```
+## LINKS 
+MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/domain?view=graph-rest-beta
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_Domains.md
 

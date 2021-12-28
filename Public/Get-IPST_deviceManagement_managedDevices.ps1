@@ -3,33 +3,37 @@
   .SYNOPSIS
     Get Managed Device.
   .DESCRIPTION
-    
-  .PARAMETER DeviceID
-    Specifi DeviceID for get specific device.
+    TODO
   .INPUTS
     None
   .OUTPUTS
-    None
+    Object[]
+  .OUTPUTS
+    PSCustomObject[]
   .NOTES
     Author:         Jan Řežab
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
-    PS> Get-IPST_deviceManagement_managedDevices -DeviceID 00000000-0000-0000-0000-000000000000
+    PS> Get-IPST_deviceManagement_managedDevices -Id 00000000-0000-0000-0000-000000000000
+  .LINK
+    MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceManagement_managedDevices.md
   #>
   [CmdletBinding()]
   param (
       [Parameter()]
-      [string]$DeviceId
+      [string]$Id
   )
   $Resource = '/deviceManagement/managedDevices'
   $Params = @{
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
-  if ($DeviceId) {
+  if ($Id) {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $DeviceId
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id
     }
   } else {
     $Params += @{

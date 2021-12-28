@@ -1,18 +1,18 @@
 ﻿# Get-IPST_deviceAppManagement_mobileAppConfigurations
 
 ## SYNOPSIS 
-Get App Protection Policies.
+Get mobile app configuration
 
 ## SYNTAX
 ```Powershell
 Get-IPST_deviceAppManagement_mobileAppConfigurations [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
-https://docs.microsoft.com/cs-cz/graph/api/intune-apps-androidforworkmobileappconfiguration-list?view=graph-rest-beta
+TODO
 ## PARAMETERS
 
     -Id <String>
-        Specifi ID for get specific policies.
+        Specifi Id.
         
         Required?                    false
         Position?                    1
@@ -30,8 +30,14 @@ https://docs.microsoft.com/cs-cz/graph/api/intune-apps-androidforworkmobileappco
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
 Get-IPST_deviceAppManagement_mobileAppConfigurations -Id 00000000-0000-0000-0000-000000000000
 ```
+## LINKS 
+MS Docs: https://docs.microsoft.com/cs-cz/graph/api/intune-apps-androidforworkmobileappconfiguration-list?view=graph-rest-beta
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceAppManagement_mobileAppConfigurations.md
 

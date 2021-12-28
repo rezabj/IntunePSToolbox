@@ -1,24 +1,29 @@
 ﻿function Get-IPST_deviceAppManagement_mobileAppConfigurations {
   <#
   .SYNOPSIS
-    Get App Protection Policies.
+    Get mobile app configuration
   .DESCRIPTION
-    https://docs.microsoft.com/cs-cz/graph/api/intune-apps-androidforworkmobileappconfiguration-list?view=graph-rest-beta
-  .PARAMETER Id
-    Specifi ID for get specific policies.
+    TODO
   .INPUTS
     None
   .OUTPUTS
-    None
+    Object[]
+  .OUTPUTS
+    PSCustomObject[]
   .NOTES
     Author:         Jan Řežab
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
     PS> Get-IPST_deviceAppManagement_mobileAppConfigurations -Id 00000000-0000-0000-0000-000000000000
+  .LINK
+    MS Docs: https://docs.microsoft.com/cs-cz/graph/api/intune-apps-androidforworkmobileappconfiguration-list?view=graph-rest-beta
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceAppManagement_mobileAppConfigurations.md
   #>
   [CmdletBinding(DefaultParameterSetName='Global')]
   param (
+    # Specifi Id.
     [Parameter(ParameterSetName='Global',Mandatory=$false,Position=0)]
     [string]$Id
   )

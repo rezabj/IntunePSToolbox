@@ -1,14 +1,14 @@
 ﻿# Get-IPST_deviceAppManagement_targetedManagedAppConfigurations
 
 ## SYNOPSIS 
-Get App Protection Policies.
+Get Targeted Managed App Configurations.
 
 ## SYNTAX
 ```Powershell
 Get-IPST_deviceAppManagement_targetedManagedAppConfigurations [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
-https://docs.microsoft.com/en-us/graph/api/intune-mam-targetedmanagedappconfiguration-list?view=graph-rest-1.0
+TODO
 ## PARAMETERS
 
     -Id <String>
@@ -30,8 +30,14 @@ https://docs.microsoft.com/en-us/graph/api/intune-mam-targetedmanagedappconfigur
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
 Get-IPST_deviceAppManagement_targetedManagedAppConfigurations -Id 00000000-0000-0000-0000-000000000000
 ```
+## LINKS 
+MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/intune-mam-targetedmanagedappconfiguration?view=graph-rest-1.0
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceAppManagement_targetedManagedAppConfigurations.md
 

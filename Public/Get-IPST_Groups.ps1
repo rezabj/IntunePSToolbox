@@ -3,29 +3,35 @@ function Get-IPST_Groups {
   .SYNOPSIS
     Get AAD groups
   .DESCRIPTION
-    
-  .PARAMETER DeviceID
-    Specify GroupID for get one.
+    TODO
   .INPUTS
     None
   .OUTPUTS
-    None
+    Object[]
+  .OUTPUTS
+    PSCustomObject[]
   .NOTES
     Author:         Jan Řežab
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
     PS> Get-IPST_Domains -GroupID 00000000-0000-0000-0000-000000000000
+  .LINK
+    MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/group?view=graph-rest-beta
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_Groups.md
   #>
   [CmdletBinding(DefaultParameterSetName="Global")]
   param (
+    # https://docs.microsoft.com/en-us/graph/api/group-list-members?view=graph-rest-beta&tabs=http
     [Parameter(ParameterSetName='Members',          Mandatory=$false,Position=0)][switch]$Members,
-    [Parameter(ParameterSetName='transitiveMembers',Mandatory=$false,Position=0)][switch]$transitiveMembers,
+    # https://docs.microsoft.com/en-us/graph/api/group-list-transitivemembers?view=graph-rest-beta&tabs=http
+    [Parameter(ParameterSetName='TransitiveMembers',Mandatory=$false,Position=0)][switch]$TransitiveMembers,
 
     [Parameter(ParameterSetName='Global',           Mandatory=$false,Position=1)]
     [Parameter(ParameterSetName='Members',          Mandatory=$true, Position=2)]
-    [Parameter(ParameterSetName='transitiveMembers',Mandatory=$true, Position=2)]
-    [string]$GroupId
+    [Parameter(ParameterSetName='TransitiveMembers',Mandatory=$true, Position=2)]
+    [string]$Id
   )
   $Resource = '/groups'
   $Params = @{
@@ -36,20 +42,20 @@ function Get-IPST_Groups {
   switch ($PsCmdlet.ParameterSetName) {
     Members {
       $Params += @{
-        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $GroupId + "/Members"
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id + "/Members"
       }
       break
     }
     transitiveMembers {
       $Params += @{
-        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $GroupId + "/transitiveMembers"
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id + "/transitiveMembers"
       }
       break
     }
     Default {
-      if ($GroupId) {
+      if ($Id) {
         $Params += @{
-          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $GroupId
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id
         }
       } else {
         $Params += @{

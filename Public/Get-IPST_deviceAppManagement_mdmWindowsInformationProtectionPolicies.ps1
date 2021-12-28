@@ -1,21 +1,27 @@
 ﻿function Get-IPST_deviceAppManagement_mdmWindowsInformationProtectionPolicies {
   <#
   .SYNOPSIS
-    Get App Protection Policies.
+    Get Windows Information Protection Policies.
   .DESCRIPTION
-    https://docs.microsoft.com/en-us/graph/api/intune-mam-targetedmanagedapppolicyassignment-list?view=graph-rest-1.0
+    Get Windows Information Protection Policies.
   .PARAMETER Id
     Specifi ID for get specific policies.
   .INPUTS
     None
   .OUTPUTS
-    None
+    Object[]
+  .OUTPUTS
+    PSCustomObject[]
   .NOTES
     Author:         Jan Řežab
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
     PS> Get-IPST_deviceAppManagement_mdmWindowsInformationProtectionPolicies -Id 00000000-0000-0000-0000-000000000000
+  .LINK
+    MS Docs: https://docs.microsoft.com/en-us/graph/api/intune-mam-targetedmanagedapppolicyassignment-list?view=graph-rest-1.0
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceAppManagement_mdmWindowsInformationProtectionPolicies.md
   #>
   [CmdletBinding(DefaultParameterSetName='Global')]
   param (

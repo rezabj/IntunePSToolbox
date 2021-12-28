@@ -1,5 +1,6 @@
-$commands = Get-Command -Module "IntunePSToolbox"
+Import-Module -Name ..\IntunePSToolbox.psd1 -Force -ErrorAction Stop
 
+$commands = Get-Command -Module "IntunePSToolbox"
 
 foreach ($command in $commands) {
   $PSHelp = Get-Help $command.Name -Full
@@ -20,6 +21,11 @@ foreach ($command in $commands) {
     $param = $parameter | Out-String
     $MDHelp += $param + "`n"
   }
+  $MDHelp += "## OUTPUTS`n"
+  foreach ($output in $PSHelp.returnValues.returnValue) {
+    $MDHelp += $output.type.name + "`n"
+  }
+  
   $i = 1
   foreach ($Example in $PSHelp.examples.example) {
     $MDHelp += "## EXAMPLE " + $i + "`n" 
@@ -29,8 +35,11 @@ foreach ($command in $commands) {
     $MDHelp += '```' + "`n"
     $i++
   }
+  $MDHelp += "## LINKS `n"
+  foreach ($Link in $PSHelp.relatedLinks.navigationLink) {
+    $MDHelp += $Link.linkText + "`n"
+  }
 
   $MDFile = "..\Docs\" + $command.Name + ".md"
   Out-File -FilePath $MDFile -Encoding UTF8 -Force -InputObject $MDHelp
 }
-set-location -Path ..

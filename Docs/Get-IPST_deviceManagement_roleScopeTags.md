@@ -8,11 +8,10 @@ Get Scopes tags
 Get-IPST_deviceManagement_roleScopeTags [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
-https://docs.microsoft.com/en-us/graph/api/intune-rbac-rolescopetag-list?view=graph-rest-beta
+TODO
 ## PARAMETERS
 
     -Id <String>
-        Specifi ID for get specific scope tag.
         
         Required?                    false
         Position?                    1
@@ -30,8 +29,14 @@ https://docs.microsoft.com/en-us/graph/api/intune-rbac-rolescopetag-list?view=gr
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
 Get-IPST_deviceManagement_roleScopeTags -Id 00000000-0000-0000-0000-000000000000
 ```
+## LINKS 
+MS Docs: https://docs.microsoft.com/en-us/graph/api/intune-rbac-rolescopetag-list?view=graph-rest-beta
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceManagement_roleScopeTags.md
 

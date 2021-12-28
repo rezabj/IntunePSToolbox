@@ -5,17 +5,18 @@ Get AAD groups
 
 ## SYNTAX
 ```Powershell
-Get-IPST_Groups [[-GroupId] <String>] [<CommonParameters>]
+Get-IPST_Groups [[-Id] <String>] [<CommonParameters>]
 
-Get-IPST_Groups [[-Members]] [-GroupId] <String> [<CommonParameters>]
+Get-IPST_Groups [[-Members]] [-Id] <String> [<CommonParameters>]
 
-Get-IPST_Groups [[-transitiveMembers]] [-GroupId] <String> [<CommonParameters>]
+Get-IPST_Groups [[-TransitiveMembers]] [-Id] <String> [<CommonParameters>]
 ```
 ## DESCRIPTION
-
+TODO
 ## PARAMETERS
 
     -Members [<SwitchParameter>]
+        https://docs.microsoft.com/en-us/graph/api/group-list-members?view=graph-rest-beta&tabs=http
         
         Required?                    false
         Position?                    1
@@ -23,7 +24,8 @@ Get-IPST_Groups [[-transitiveMembers]] [-GroupId] <String> [<CommonParameters>]
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
-    -transitiveMembers [<SwitchParameter>]
+    -TransitiveMembers [<SwitchParameter>]
+        https://docs.microsoft.com/en-us/graph/api/group-list-transitivemembers?view=graph-rest-beta&tabs=http
         
         Required?                    false
         Position?                    1
@@ -31,7 +33,7 @@ Get-IPST_Groups [[-transitiveMembers]] [-GroupId] <String> [<CommonParameters>]
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
-    -GroupId <String>
+    -Id <String>
         
         Required?                    false
         Position?                    2
@@ -49,8 +51,14 @@ Get-IPST_Groups [[-transitiveMembers]] [-GroupId] <String> [<CommonParameters>]
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
 Get-IPST_Domains -GroupID 00000000-0000-0000-0000-000000000000
 ```
+## LINKS 
+MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/group?view=graph-rest-beta
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_Groups.md
 

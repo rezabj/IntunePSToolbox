@@ -5,14 +5,14 @@ Get Mobile Apps.
 
 ## SYNTAX
 ```Powershell
-Get-IPST_deviceAppManagement_mobileApps [[-AppId] <String>] [<CommonParameters>]
+Get-IPST_deviceAppManagement_mobileApps [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
-
+TODO
 ## PARAMETERS
 
-    -AppId <String>
-        Specifi AppID for get specific application.
+    -Id <String>
+        Specifi ID for get specific application.
         
         Required?                    false
         Position?                    1
@@ -30,8 +30,14 @@ Get-IPST_deviceAppManagement_mobileApps [[-AppId] <String>] [<CommonParameters>]
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
-Get-IPST_deviceAppManagement_mobileApps -AppID 00000000-0000-0000-0000-000000000000
+Get-IPST_deviceAppManagement_mobileApps -Id 00000000-0000-0000-0000-000000000000
 ```
+## LINKS 
+MS Docs: https://docs.microsoft.com/en-us/graph/api/intune-shared-mobileapp-list?view=graph-rest-beta
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceAppManagement_mobileApps.md
 

@@ -4,25 +4,29 @@ function Get-IPST_Domains {
     Get AAD domains.
   .DESCRIPTION
     TODO
-  .PARAMETER Domain
-    Domain name (e.g. contoso.com).
-  .PARAMETER isDefault
-    Return default domain
   .INPUTS
     None
   .OUTPUTS
-    None
+    Object[]
+  .OUTPUTS
+    PSCustomObject[]
   .NOTES
     Author:         Jan Řežab
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
     PS> Get-IPST_Domains
+  .LINK
+    MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/domain?view=graph-rest-beta
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_Domains.md
   #>
   [CmdletBinding(DefaultParameterSetName="Global")]
   param (
+    # Domain name (e.g. contoso.com).
     [Parameter(ParameterSetName='Global', Mandatory=$false,Position=0)]
     [string]$Domain,
+    # Return default domain.
     [Parameter(ParameterSetName='isDefault', Mandatory=$false,Position=0)]
     [switch]$isDefault
   )

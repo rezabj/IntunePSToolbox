@@ -8,10 +8,11 @@ Create new Azure AD Apps for Intune PS Toolbox.
 New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
 ```
 ## DESCRIPTION
-
+TODO
 ## PARAMETERS
 
     -AppLogin <Boolean>
+        Specify if you use Delegated or App login.
         
         Required?                    true
         Position?                    1
@@ -29,8 +30,12 @@ New-IPSTAADApp [-AppLogin] <Boolean> [<CommonParameters>]
 
 
 
+## OUTPUTS
+None
 ## EXAMPLE 1
 ```Powershell
 New-IPSTAADApp -AppLogin $True
 ```
+## LINKS 
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/New-IPSTAADApp.md
 

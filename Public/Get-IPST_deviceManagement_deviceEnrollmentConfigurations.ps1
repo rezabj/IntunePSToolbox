@@ -3,22 +3,26 @@
   .SYNOPSIS
     Get-IPST_deviceManagement_deviceEnrollmentConfigurations
   .DESCRIPTION
-    
-  .PARAMETER PolicyId
-    Specifi Device Enrollment Configuration ID for get specific policy.
+    TODO
   .INPUTS
     None
   .OUTPUTS
-    None
+    Object[]
+  .OUTPUTS
+    PSCustomObject[]
   .NOTES
     Author:         Jan Řežab
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
     PS> Get-IPST_deviceManagement_deviceEnrollmentConfigurations -PolicyId 00000000-0000-0000-0000-000000000000
+  .LINK
+    MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/intune-shared-deviceenrollmentconfiguration?view=graph-rest-beta
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceManagement_deviceEnrollmentConfigurations.md
   #>
   [CmdletBinding(DefaultParameterSetName="Global")]
-  # /deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfigurationId}/assignments
+  
   param (
     [Parameter(ParameterSetName='Global')]
     [ValidateSet(
@@ -32,9 +36,10 @@
     
     [Parameter(ParameterSetName='Assignment')][switch]$Assignment,
 
+    # Specifi Device Enrollment Configuration ID for get specific policy.
     [Parameter(ParameterSetName='Global',     Mandatory=$false, Position=0)]
     [Parameter(ParameterSetName='Assignment', Mandatory=$true,  Position=0)]
-    [string]$PolicyId
+    [string]$Id
     
   )
   $Resource = '/deviceManagement/deviceEnrollmentConfigurations'
@@ -42,34 +47,36 @@
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
+  switch ($PsCmdlet.ParameterSetName) {
+    Assignment {
+      $Params += @{
+        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id + "/assignments"
+      }
+      $Result = Invoke-GraphAPIRequest @Params
+    }
+    Default {
+      if ($Id) {
+        $Params += @{
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id
+        }
+      } else {
+        $Params += @{
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+        }
+      }
+      $Result = Invoke-GraphAPIRequest @Params
 
-  if ($Assignment) {
-    $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId + "/assignments"
-    }
-    $Result = Invoke-GraphAPIRequest @Params
-    return $Result 
-  } else {
-    if ($PolicyId) {
-      $Params += @{
-        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId
-      }
-    } else {
-      $Params += @{
-        "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
+      if ($PolicyType) {
+        $PolicyTypeLong = "#microsoft.graph." + $PolicyType
+        $FiltredResult = @()
+        foreach ($policy in $Result) {
+          if ($policy.'@odata.type' -eq $PolicyTypeLong) {
+            $FiltredResult += $policy
+          }      
+        }
+        $Result = $FiltredResult
       }
     }
-    $Result = Invoke-GraphAPIRequest @Params
-    if ($PolicyType) {
-      $PolicyTypeLong = "#microsoft.graph." + $PolicyType
-      $FiltredResult = @()
-      foreach ($policy in $Result) {
-        if ($policy.'@odata.type' -eq $PolicyTypeLong) {
-          $FiltredResult += $policy
-        }      
-      }
-      $Result = $FiltredResult
-    }
-    return $Result 
   }
+  return $Result
 }

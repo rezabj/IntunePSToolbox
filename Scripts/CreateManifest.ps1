@@ -36,5 +36,3 @@ Update-ModuleManifest -Path ..\IntunePSToolbox.psd1 `
   -ProjectUri "https://github.com/rezabj/IntunePSToolbox" `
   -HelpInfoUri "https://github.com/rezabj/IntunePSToolbox/Docs" `
   -PrivateData $PrivateData
-
-Set-Location ..

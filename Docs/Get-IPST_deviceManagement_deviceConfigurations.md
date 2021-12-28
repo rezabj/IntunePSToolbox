@@ -5,32 +5,25 @@ Get-IPST_deviceManagement_deviceConfigurations
 
 ## SYNTAX
 ```Powershell
-Get-IPST_deviceManagement_deviceConfigurations [-PolicyType <String>] [[-PolicyId] <String>] [<CommonParameters>]
+Get-IPST_deviceManagement_deviceConfigurations [-PolicyType <String>] [[-Id] <String>] [<CommonParameters>]
 
-Get-IPST_deviceManagement_deviceConfigurations [-Assignment] [-PolicyId] <String> [<CommonParameters>]
+Get-IPST_deviceManagement_deviceConfigurations [-Assignment] [-Id] <String> [<CommonParameters>]
 
-Get-IPST_deviceManagement_deviceConfigurations [-ConflictSummary] [<CommonParameters>]
+Get-IPST_deviceManagement_deviceConfigurations [-DeviceOverview] [-Id] <String> [<CommonParameters>]
 
-Get-IPST_deviceManagement_deviceConfigurations [-DeviceOverview] [-PolicyId] <String> [<CommonParameters>]
+Get-IPST_deviceManagement_deviceConfigurations [-DeviceStatuses] [-Id] <String> [<CommonParameters>]
 
-Get-IPST_deviceManagement_deviceConfigurations [-DeviceStateSummary] [<CommonParameters>]
+Get-IPST_deviceManagement_deviceConfigurations [-GroupAssignment] [-Id] <String> [<CommonParameters>]
 
-Get-IPST_deviceManagement_deviceConfigurations [-DeviceStatus] [-PolicyId] <String> [<CommonParameters>]
+Get-IPST_deviceManagement_deviceConfigurations [-UserStatusOverview] [-Id] <String> [<CommonParameters>]
 
-Get-IPST_deviceManagement_deviceConfigurations [-GroupAssignment] [-PolicyId] <String> [<CommonParameters>]
-
-Get-IPST_deviceManagement_deviceConfigurations [-UserOverview] [-PolicyId] <String> [<CommonParameters>]
-
-Get-IPST_deviceManagement_deviceConfigurations [-UserStateSummary] [<CommonParameters>]
-
-Get-IPST_deviceManagement_deviceConfigurations [-UserStatus] [-PolicyId] <String> [<CommonParameters>]
+Get-IPST_deviceManagement_deviceConfigurations [-UserStatuses] [-Id] <String> [<CommonParameters>]
 ```
 ## DESCRIPTION
-
+TODO
 ## PARAMETERS
 
     -PolicyType <String>
-        Device configuration type. E.g. androidWorkProfileTrustedRootCertificate
         
         Required?                    false
         Position?                    named
@@ -39,14 +32,6 @@ Get-IPST_deviceManagement_deviceConfigurations [-UserStatus] [-PolicyId] <String
         Accept wildcard characters?  false
         
     -Assignment [<SwitchParameter>]
-        
-        Required?                    false
-        Position?                    named
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-        
-    -ConflictSummary [<SwitchParameter>]
         https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationassignment-get?view=graph-rest-beta
         
         Required?                    false
@@ -56,15 +41,6 @@ Get-IPST_deviceManagement_deviceConfigurations [-UserStatus] [-PolicyId] <String
         Accept wildcard characters?  false
         
     -DeviceOverview [<SwitchParameter>]
-        https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationconflictsummary-list?view=graph-rest-beta
-        
-        Required?                    false
-        Position?                    named
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-        
-    -DeviceStateSummary [<SwitchParameter>]
         https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationdeviceoverview-get?view=graph-rest-beta
         
         Required?                    false
@@ -73,16 +49,7 @@ Get-IPST_deviceManagement_deviceConfigurations [-UserStatus] [-PolicyId] <String
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
-    -DeviceStatus [<SwitchParameter>]
-        https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-get?view=graph-rest-beta
-        
-        Required?                    false
-        Position?                    named
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-        
-    -GroupAssignment [<SwitchParameter>]
+    -DeviceStatuses [<SwitchParameter>]
         https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationdevicestatus-list?view=graph-rest-beta
         
         Required?                    false
@@ -91,7 +58,7 @@ Get-IPST_deviceManagement_deviceConfigurations [-UserStatus] [-PolicyId] <String
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
-    -UserOverview [<SwitchParameter>]
+    -GroupAssignment [<SwitchParameter>]
         https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationgroupassignment-list?view=graph-rest-beta
         
         Required?                    false
@@ -100,7 +67,7 @@ Get-IPST_deviceManagement_deviceConfigurations [-UserStatus] [-PolicyId] <String
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
-    -UserStateSummary [<SwitchParameter>]
+    -UserStatusOverview [<SwitchParameter>]
         https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationuseroverview-get?view=graph-rest-beta
         
         Required?                    false
@@ -109,8 +76,8 @@ Get-IPST_deviceManagement_deviceConfigurations [-UserStatus] [-PolicyId] <String
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
-    -UserStatus [<SwitchParameter>]
-        https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationuserstatesummary-get?view=graph-rest-beta
+    -UserStatuses [<SwitchParameter>]
+        https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-list?view=graph-rest-beta
         
         Required?                    false
         Position?                    named
@@ -118,8 +85,8 @@ Get-IPST_deviceManagement_deviceConfigurations [-UserStatus] [-PolicyId] <String
         Accept pipeline input?       false
         Accept wildcard characters?  false
         
-    -PolicyId <String>
-        Specifi Device Configuration ID for get specific policy.
+    -Id <String>
+        Specifi Device Configuration Id.
         
         Required?                    false
         Position?                    1
@@ -137,12 +104,22 @@ Get-IPST_deviceManagement_deviceConfigurations [-UserStatus] [-PolicyId] <String
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
-Get-IPST_deviceManagement_deviceConfigurations -PolicyId 00000000-0000-0000-0000-000000000000
+Get-IPST_deviceManagement_deviceConfigurations -Id 00000000-0000-0000-0000-000000000000
 ```
 ## EXAMPLE 2
 ```Powershell
 Get-IPST_deviceManagement_deviceConfigurations -PolicyType windowsUpdateForBusinessConfiguration
 ```
+## EXAMPLE 3
+```Powershell
+Get-IPST_deviceManagement_deviceConfigurations -UserStatusOverview -Id 00000000-0000-0000-0000-000000000000
+```
+## LINKS 
+MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-deviceconfiguration?view=graph-rest-1.0
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceManagement_deviceConfigurations.md
 

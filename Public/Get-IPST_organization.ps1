@@ -7,13 +7,17 @@ function Get-IPST_organization {
   .INPUTS
     None
   .OUTPUTS
-    None
+    PSCustomObject[]
   .NOTES
     Author:         Jan Řežab
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
     PS> Get-IPST_organization
+  .LINK
+    MS Docs: https://docs.microsoft.com/en-us/graph/api/intune-onboarding-organization-list?view=graph-rest-beta
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_organization.md
   #>
   [CmdletBinding()]
   param (

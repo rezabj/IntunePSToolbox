@@ -1,14 +1,14 @@
 ﻿# Get-IPST_deviceAppManagement_windowsInformationProtectionPolicies
 
 ## SYNOPSIS 
-Get App Protection Policies.
+Get Policy for Windows information protection without MDM.
 
 ## SYNTAX
 ```Powershell
 Get-IPST_deviceAppManagement_windowsInformationProtectionPolicies [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
-https://docs.microsoft.com/en-us/graph/api/intune-mam-targetedmanagedapppolicyassignment-list?view=graph-rest-1.0
+TODO
 ## PARAMETERS
 
     -Id <String>
@@ -30,8 +30,14 @@ https://docs.microsoft.com/en-us/graph/api/intune-mam-targetedmanagedapppolicyas
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
 Get-IPST_deviceAppManagement_windowsInformationProtectionPolicies -Id 00000000-0000-0000-0000-000000000000
 ```
+## LINKS 
+MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/intune-mam-windowsinformationprotectionpolicy?view=graph-rest-1.0
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceAppManagement_windowsInformationProtectionPolicies.md
 

@@ -3,34 +3,39 @@
   .SYNOPSIS
     Get CoManagedDevice
   .DESCRIPTION
-    
-  .PARAMETER DeviceID
-    Specifi DeviceID for get specific device.
+    TODO
   .INPUTS
     None
   .OUTPUTS
-    None
+    Object[]
+  .OUTPUTS
+    PSCustomObject[]
   .NOTES
     Author:         Jan Řežab
     GitHub:         https://github.com/rezabj/IntunePSToolbox
     Blog:           https://www.rezab.eu
   .EXAMPLE
     PS> Get-IPST_deviceManagement_comanagedDevices -DeviceID 00000000-0000-0000-0000-000000000000
+  .LINK
+    MS Docs: https://docs.microsoft.com/en-us/graph/api/intune-devices-windowsmanageddevice-list?view=graph-rest-beta
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceManagement_comanagedDevices.md
   #>
 
   [CmdletBinding()]
   param (
+      # Specifi Id for get specific device.
       [Parameter()]
-      [string]$DeviceId
+      [string]$Id
   )
   $Resource = '/deviceManagement/comanagedDevices'
   $Params = @{
     "AccessToken" = $Global:IPSTAccessToken
     "GraphMethod" = 'GET'
   }
-  if ($DeviceConfigurationId) {
+  if ($Id) {
     $Params += @{
-      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $DeviceId
+      "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id
     }
   } else {
     $Params += @{

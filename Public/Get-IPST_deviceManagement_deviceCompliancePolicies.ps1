@@ -4,14 +4,14 @@
     Get-IPST_deviceManagement_deviceCompliancePolicies
   .DESCRIPTION
   
-  .PARAMETER PolicyType
-    Device compliance type. E.g. androidDeviceOwnerCompliancePolicy
-  .PARAMETER PolicyId
-    Specifi Device Configuration ID for get specific policy.
+  .PARAMETER Id
+    
   .INPUTS
     None
   .OUTPUTS
-    None
+    Object[]
+  .OUTPUTS
+    PSCustomObject[]
   .NOTES
     Author:         Jan Řežab
     GitHub:         https://github.com/rezabj/IntunePSToolbox
@@ -20,9 +20,14 @@
     PS> Get-IPST_deviceManagement_deviceCompliancePolicies -PolicyId 00000000-0000-0000-0000-000000000000
   .EXAMPLE
     PS> Get-IPST_deviceManagement_deviceCompliancePolicies -PolicyType androidDeviceOwnerCompliancePolicy
+  .LINK
+    MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/intune-deviceconfig-devicecompliancepolicy?view=graph-rest-1.0
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceManagement_deviceCompliancePolicies.md
   #>
   [CmdletBinding(DefaultParameterSetName='Global')]
   param (
+    # Device compliance type. E.g. androidDeviceOwnerCompliancePolicy
     [Parameter(ParameterSetName='Global',Mandatory=$false,Position="0")]
     [ValidateSet(
       "androidCompliancePolicy",
@@ -37,26 +42,10 @@
       )
     ]
     [string]$PolicyType,
-    [Parameter(ParameterSetName='Actions',Position=0)][switch]$Actions, # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-devicecomplianceactionitem-list?view=graph-rest-beta
-    [Parameter(ParameterSetName='DeviceOverview',Position=0)][switch]$DeviceOverview,
-    [Parameter(ParameterSetName='DeviceStatus',Position=0)][switch]$DeviceStatus,
-    [Parameter(ParameterSetName='Assignment',Position=0)][switch]$Assignment, # https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-list?view=graph-rest-beta
-    [Parameter(ParameterSetName='DeviceStateSummary',Position=0)][switch]$DeviceStateSummary,
-    [Parameter(ParameterSetName='Script',Position=0)][switch]$Script,
-    [Parameter(ParameterSetName='SettingState',Position=0)][switch]$SettingState,
-    [Parameter(ParameterSetName='SettingStateSummary',Position=0)][switch]$SettingStateSummary,
-    [Parameter(ParameterSetName='ScheduledActionForRule',Position=0)][switch]$ScheduledActionForRule,
-    [Parameter(ParameterSetName='UserOverview',Position=0)][switch]$UserOverview,
-    [Parameter(ParameterSetName='UserStatus',Position=0)][switch]$UserStatus,
-
+        
+    # Specifi Compliance policy ID.
     [Parameter(ParameterSetName='Global',Mandatory=$false,Position=1)]
-    [Parameter(ParameterSetName='Actions',Mandatory=$true,Position=1)]
-    [Parameter(ParameterSetName='ScheduledActionForRule',Mandatory=$true,Position=1)]
-    [string]$PolicyId,
-
-    [Parameter(ParameterSetName='Actions',Mandatory=$true,Position=2)]
-    [string]$ScheduledActionForRuleId
-
+    [string]$Id
   )
 
   $Resource = '/deviceManagement/deviceCompliancePolicies'
@@ -67,9 +56,9 @@
 
   switch ($PsCmdlet.ParameterSetName) {
     Default {
-      if ($PolicyId) {
+      if ($Id) {
         $Params += @{
-          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $PolicyId + "/?`$expand=assignments,scheduledActionsForRule(`$expand=scheduledActionConfigurations)"
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id + "/?`$expand=assignments,scheduledActionsForRule(`$expand=scheduledActionConfigurations)"
         }
       } else {
         $Params += @{

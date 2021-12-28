@@ -5,14 +5,13 @@ Get Managed Device.
 
 ## SYNTAX
 ```Powershell
-Get-IPST_deviceManagement_managedDevices [[-DeviceId] <String>] [<CommonParameters>]
+Get-IPST_deviceManagement_managedDevices [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
-
+TODO
 ## PARAMETERS
 
-    -DeviceId <String>
-        Specifi DeviceID for get specific device.
+    -Id <String>
         
         Required?                    false
         Position?                    1
@@ -30,8 +29,14 @@ Get-IPST_deviceManagement_managedDevices [[-DeviceId] <String>] [<CommonParamete
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
-Get-IPST_deviceManagement_managedDevices -DeviceID 00000000-0000-0000-0000-000000000000
+Get-IPST_deviceManagement_managedDevices -Id 00000000-0000-0000-0000-000000000000
 ```
+## LINKS 
+MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/intune-devices-manageddevice?view=graph-rest-1.0
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceManagement_managedDevices.md
 

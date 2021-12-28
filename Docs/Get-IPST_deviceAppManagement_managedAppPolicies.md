@@ -8,7 +8,7 @@ Get App Protection Policies.
 Get-IPST_deviceAppManagement_managedAppPolicies [[-Id] <String>] [<CommonParameters>]
 ```
 ## DESCRIPTION
-https://docs.microsoft.com/en-us/graph/api/intune-mam-managedappprotection-list?view=graph-rest-1.0
+
 ## PARAMETERS
 
     -Id <String>
@@ -30,8 +30,14 @@ https://docs.microsoft.com/en-us/graph/api/intune-mam-managedappprotection-list?
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
-Get-IPSTmanagedAppPolicies -Id 00000000-0000-0000-0000-000000000000
+Get-IPST_deviceAppManagement_managedAppPolicies -Id 00000000-0000-0000-0000-000000000000
 ```
+## LINKS 
+MS Docs: https://docs.microsoft.com/en-us/graph/api/intune-mam-managedappprotection-list?view=graph-rest-1.0
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_deviceAppManagement_managedAppPolicies.md
 

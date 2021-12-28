@@ -28,7 +28,7 @@ TODO
 ## PARAMETERS
 
     -Assignment [<SwitchParameter>]
-        Get security baseline profile assignment.
+        https://docs.microsoft.com/en-us/graph/api/intune-deviceintent-devicemanagementintentassignment-list?view=graph-rest-beta
         
         Required?                    false
         Position?                    1
@@ -37,7 +37,7 @@ TODO
         Accept wildcard characters?  false
         
     -Settings [<SwitchParameter>]
-        Get security baseline profile settings.
+        https://docs.microsoft.com/en-us/graph/api/intune-deviceintent-devicemanagementstringsettinginstance-list?view=graph-rest-beta
         
         Required?                    false
         Position?                    1
@@ -46,7 +46,7 @@ TODO
         Accept wildcard characters?  false
         
     -DeviceSettingStateSummaries [<SwitchParameter>]
-        TODO
+        https://docs.microsoft.com/en-us/graph/api/intune-deviceintent-devicemanagementintentdevicesettingstatesummary-list?view=graph-rest-beta
         
         Required?                    false
         Position?                    1
@@ -55,7 +55,7 @@ TODO
         Accept wildcard characters?  false
         
     -DeviceStates [<SwitchParameter>]
-        TODO
+        https://docs.microsoft.com/en-us/graph/api/intune-deviceintent-devicemanagementintentdevicestate-list?view=graph-rest-beta
         
         Required?                    false
         Position?                    1
@@ -64,7 +64,7 @@ TODO
         Accept wildcard characters?  false
         
     -DeviceStateSummary [<SwitchParameter>]
-        TODO
+        https://docs.microsoft.com/en-us/graph/api/intune-deviceintent-devicemanagementintentdevicestatesummary-get?view=graph-rest-beta
         
         Required?                    false
         Position?                    1
@@ -73,7 +73,7 @@ TODO
         Accept wildcard characters?  false
         
     -Categories [<SwitchParameter>]
-        TODO
+        https://docs.microsoft.com/en-us/graph/api/intune-deviceintent-devicemanagementintentsettingcategory-list?view=graph-rest-beta
         
         Required?                    false
         Position?                    1
@@ -82,7 +82,7 @@ TODO
         Accept wildcard characters?  false
         
     -UserStates [<SwitchParameter>]
-        TODO
+        https://docs.microsoft.com/en-us/graph/api/intune-deviceintent-devicemanagementintentuserstate-list?view=graph-rest-beta
         
         Required?                    false
         Position?                    1
@@ -91,7 +91,7 @@ TODO
         Accept wildcard characters?  false
         
     -UserStateSummary [<SwitchParameter>]
-        TODO
+        https://docs.microsoft.com/en-us/graph/api/intune-deviceintent-devicemanagementintentuserstatesummary-get?view=graph-rest-beta
         
         Required?                    false
         Position?                    1
@@ -100,7 +100,6 @@ TODO
         Accept wildcard characters?  false
         
     -Id <String>
-        Specifi security baseline profile id.
         
         Required?                    false
         Position?                    1
@@ -118,6 +117,9 @@ TODO
 
 
 
+## OUTPUTS
+Object[]
+PSCustomObject[]
 ## EXAMPLE 1
 ```Powershell
 Get-IPST_deviceManagement_intents -Id 00000000-0000-0000-0000-000000000000
@@ -126,4 +128,5 @@ Get-IPST_deviceManagement_intents -Id 00000000-0000-0000-0000-000000000000
 ```Powershell
 Get-IPST_deviceManagement_intents -Assignment -Id 00000000-0000-0000-0000-000000000000
 ```
+## LINKS 
 

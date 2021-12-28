@@ -3,9 +3,7 @@
   .SYNOPSIS
     Create new Azure AD Apps for Intune PS Toolbox.
   .DESCRIPTION
-    
-  .PARAMETER $AppLogin
-    Specify if you use Delegated or App login.
+    TODO
   .INPUTS
     None
   .OUTPUTS
@@ -16,8 +14,11 @@
     Blog:           https://www.rezab.eu
   .EXAMPLE
     PS> New-IPSTAADApp -AppLogin $True
+  .LINK
+    Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/New-IPSTAADApp.md
   #>
   param (
+    # Specify if you use Delegated or App login.
     [Parameter(Mandatory=$true)]
     [bool]$AppLogin
   )

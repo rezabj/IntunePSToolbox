@@ -57,8 +57,11 @@ Before you use this function create Azure AD Application. You can use function N
 
 
 
+## OUTPUTS
+None
 ## EXAMPLE 1
 ```Powershell
 Connect-IPSTAsApplication -TenantID 00000000-0000-0000-0000-000000000000 -ClientID 00000000-0000-0000-0000-000000000000 -Secret XXXXXXXX
 ```
+## LINKS 
 
