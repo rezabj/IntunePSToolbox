@@ -86,6 +86,8 @@ FunctionsToExport = 'Connect-IPSTAsApplication', 'Connect-IPSTAsDelegated',
                'Get-IPST_deviceManagement_deviceEnrollmentConfigurations', 
                'Get-IPST_deviceManagement_intents', 
                'Get-IPST_deviceManagement_managedDevices', 
+               'Get-IPST_deviceManagement_roleAssignments', 
+               'Get-IPST_deviceManagement_roleDefinitions', 
                'Get-IPST_deviceManagement_roleScopeTags', 
                'Get-IPST_deviceManagement_templates', 'Get-IPST_Domains', 
                'Get-IPST_Groups', 'Get-IPST_organization', 'New-IPSTAADApp'
