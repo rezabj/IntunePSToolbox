@@ -23,10 +23,9 @@
   #>
   [CmdletBinding(DefaultParameterSetName="Global")]
   
-  param (   
-
+  param (
     # Specifi roleAssignment ID.
-    [Parameter(ParameterSetName='Global',     Mandatory=$false, Position=0)]
+    [Parameter(ParameterSetName='Global', Mandatory=$false, Position=0)]
     [string]$Id
     
   )
@@ -39,15 +38,15 @@
     Default {
       if ($Id) {
         $Params += @{
-          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id + "/?`$expand=roleAssignments"
         }
       } else {
         $Params += @{
           "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource
         }
       }
-      $Result = Invoke-GraphAPIRequest @Params
     }
   }
+  $Result = Invoke-GraphAPIRequest @Params
   return $Result
 }
