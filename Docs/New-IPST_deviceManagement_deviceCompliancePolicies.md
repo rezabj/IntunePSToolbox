@@ -5,17 +5,18 @@ New-IPST_deviceManagement_deviceCompliancePolicies
 
 ## SYNTAX
 ```Powershell
-New-IPST_deviceManagement_deviceCompliancePolicies -PolicyType <String> [-roleScopeTagIds <Array>] [-description <String>] [-displayName <String>] [-passwordRequired <Boolean>] [-passwordMinimu
-mLength <Int32>] [-passwordRequiredType <String>] [-passwordMinutesOfInactivityBeforeLock <Int32>] [-passwordExpirationDays <Int32>] [-passwordPreviousPasswordBlockCount <Int32>] [-securityPrev
-entInstallAppsFromUnknownSources <Boolean>] [-securityDisableUsbDebugging <Boolean>] [-securityRequireVerifyApps <Boolean>] [-deviceThreatProtectionEnabled <Boolean>] [-deviceThreatProtectionRe
-quiredSecurityLevel <String>] [-securityBlockJailbrokenDevices <Boolean>] [-osMinimumVersion <String>] [-osMaximumVersion <String>] [-minAndroidSecurityPatchLevel <String>] [-storageRequireEncr
-yption <Boolean>] [-securityRequireSafetyNetAttestationBasicIntegrity <Boolean>] [-securityRequireSafetyNetAttestationCertifiedDevice <Boolean>] [-securityRequireGooglePlayServices <Boolean>] [
--securityRequireUpToDateSecurityProviders <Boolean>] [-securityRequireCompanyPortalAppIntegrity <Boolean>] [<CommonParameters>]
+New-IPST_deviceManagement_deviceCompliancePolicies -PolicyType <String> [-roleScopeTagIds <Array>] [-description <String>] [-displayName <String>] [-passwordRequired <Boolean>] [-pa
+sswordMinimumLength <Int32>] [-passwordRequiredType <String>] [-passwordMinutesOfInactivityBeforeLock <Int32>] [-passwordExpirationDays <Int32>] [-passwordPreviousPasswordBlockCount
+ <Int32>] [-securityPreventInstallAppsFromUnknownSources <Boolean>] [-securityDisableUsbDebugging <Boolean>] [-securityRequireVerifyApps <Boolean>] [-deviceThreatProtectionEnabled <
+Boolean>] [-deviceThreatProtectionRequiredSecurityLevel <String>] [-securityBlockJailbrokenDevices <Boolean>] [-osMinimumVersion <String>] [-osMaximumVersion <String>] [-minAndroidS
+ecurityPatchLevel <String>] [-storageRequireEncryption <Boolean>] [-securityRequireSafetyNetAttestationBasicIntegrity <Boolean>] [-securityRequireSafetyNetAttestationCertifiedDevice
+ <Boolean>] [-securityRequireGooglePlayServices <Boolean>] [-securityRequireUpToDateSecurityProviders <Boolean>] [-securityRequireCompanyPortalAppIntegrity <Boolean>] [<CommonParame
+ters>]
 
-New-IPST_deviceManagement_deviceCompliancePolicies -PolicyType <String> [-roleScopeTagIds <Array>] [-description <String>] [-displayName <String>] [-deviceThreatProtectionEnabled <Boolean>] [-d
-eviceThreatProtectionRequiredSecurityLevel <String>] [-securityBlockJailbrokenDevices <Boolean>] [-osMinimumVersion <String>] [-osMaximumVersion <String>] [-passcodeBlockSimple <Boolean>] [-pas
-scodeExpirationDays <Int32>] [-passcodeMinimumLength <Int32>] [-passcodeMinutesOfInactivityBeforeLock <Int32>] [-passcodePreviousPasscodeBlockCount <Int32>] [-passcodeMinimumCharacterSetCount <
-Int32>] [-passcodeRequiredType <String>] [-passcodeRequired <Boolean>] [-managedEmailProfileRequired <Boolean>] [<CommonParameters>]
+New-IPST_deviceManagement_deviceCompliancePolicies -PolicyType <String> [-roleScopeTagIds <Array>] [-description <String>] [-displayName <String>] [-deviceThreatProtectionEnabled <B
+oolean>] [-deviceThreatProtectionRequiredSecurityLevel <String>] [-securityBlockJailbrokenDevices <Boolean>] [-osMinimumVersion <String>] [-osMaximumVersion <String>] [-passcodeBloc
+kSimple <Boolean>] [-passcodeExpirationDays <Int32>] [-passcodeMinimumLength <Int32>] [-passcodeMinutesOfInactivityBeforeLock <Int32>] [-passcodePreviousPasscodeBlockCount <Int32>] 
+[-passcodeMinimumCharacterSetCount <Int32>] [-passcodeRequiredType <String>] [-passcodeRequired <Boolean>] [-managedEmailProfileRequired <Boolean>] [<CommonParameters>]
 ```
 ## DESCRIPTION
 
