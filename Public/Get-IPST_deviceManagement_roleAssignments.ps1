@@ -39,7 +39,7 @@
     Default {
       if ($Id) {
         $Params += @{
-          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id
+          "GraphUri" = 'https://graph.microsoft.com/' + $IPSTGraphApiEnv + $Resource + "/" + $Id + "/?`$expand=roleDefinition(select=id,displayName,isBuiltIn)"
         }
       } else {
         $Params += @{
