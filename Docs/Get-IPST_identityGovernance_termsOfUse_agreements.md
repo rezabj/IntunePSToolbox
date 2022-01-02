@@ -37,6 +37,6 @@ PSCustomObject[]
 Get-IPST_identityGovernance_termsOfUse_agreements
 ```
 ## LINKS 
-MS Docs: https://docs.microsoft.com/en-us/graph/api/conditionalaccessroot-list-policies?view=graph-rest-1.0&tabs=http
-Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_identity_conditionalAccess_policies.md
+MS Docs: https://docs.microsoft.com/en-us/graph/api/resources/agreement?view=graph-rest-beta
+Online version: https://github.com/rezabj/IntunePSToolbox/blob/main/Docs/Get-IPST_identityGovernance_termsOfUse_agreements.md
 
